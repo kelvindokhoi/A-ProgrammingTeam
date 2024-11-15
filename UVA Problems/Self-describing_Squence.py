@@ -22,5 +22,3 @@ while first:
 
 for length in range(len(answer)):
     print(answer[length])
-
-print(allans[:1])
