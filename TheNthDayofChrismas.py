@@ -1,0 +1,1 @@
+print(f'{(m:=sum(range(n:=int(input())+1)))}\n{m*(n+1)//3}')
