@@ -1,3 +1,10 @@
+a = -5
+a >>= 1
+print(a)
+
+
+
+'''
 from bisect import bisect_left  # Binary search
 import sys
 
@@ -25,3 +32,4 @@ def main(file):
 
 if __name__ == '__main__':
     print(''.join(main(sys.stdin)), end='')
+'''
