@@ -1,0 +1,1 @@
+a,b,c,n=map(int,input().split());print("YES"if a*b*c*(a+b+c>=n>=3)else"NO")
