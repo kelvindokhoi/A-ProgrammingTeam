@@ -1,6 +1,6 @@
-# There is a VScode Terminal bug that prints out an extra "]"
+# There is a VScode Terminal bug that occasionally prints out an extra "]"
 # Your code here
-my_code="""print("Hello World!")"""
+my_code="""l=[*map(int,input().split())];print([i for i in range(1,-~l[0])if-~l[i]!=l[1]+i][0]);"""
 
 def Golf(code):
     if len(code) % 2 != 0:
