@@ -1,1 +1,1 @@
-exit("Lost" if 0)
+x=input();print([1,0][x.count("W")-x.count("B")])
