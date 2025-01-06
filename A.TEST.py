@@ -1,15 +1,1 @@
-"""
-https://open.kattis.com/problems/climbingstairs
-Author: https://github.com/smh997/
-"""
-n, r, k = map(int, input().split())
-if r >= k:
-    if n-r >= 0:
-        print(r + (n-r) + (n-r) % 2 + r)
-    else:
-        print(2*r)
-else:
-    if n-k - (k-r) >= 0:
-        print(k + (k-r) + (n-k-(k-r)) + (n - k - (k-r)) % 2 + r)
-    else:
-        print(2*k)
+exec(bytes('㵦汦慯㭴ⱃⱒ㵄慭⡰ⱦ湩異⡴⸩灳楬⡴⤩愻〽攻數⡣洧本洽灡昨椬灮瑵⤨献汰瑩⤨㬩㵡⩭䌨㈯刭䐪洯䐭术〾漩⁲㭡⨧⤶瀊楲瑮昨夢卅笠湩⡴⥡≽晩愠攠獬≥低⤢','u16')[2:])
