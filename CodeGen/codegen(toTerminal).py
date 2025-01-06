@@ -1,7 +1,8 @@
 # There is a VScode Terminal bug that occasionally prints out an extra "]"
 # Your code here
-my_code="""f=float;C,R,D=map(f,input().split());a=0;exec('m,g=map(f,input().split());a=m*(C/2-R*D/m-D/g>0)or a;'*6)
-print(f"YES {int(a)}"if a else"NO")"""
+my_code="""*x,=map(int,open(0).read().split())
+m=abs(x[0]-x[2])+abs(x[1]-x[3])
+print('NY'[x[4]>=m and~(x[4]-m)&1])"""
 
 def Golf(code):
     if len(code) % 2 != 0:

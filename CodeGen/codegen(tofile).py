@@ -14,6 +14,16 @@ def Golf(code):
         code += " "
     return "".join([code[i:i+2].encode('utf-8').decode('utf-16') for i in range(0,len(code),2)])
 
-code="""print("Hello World!")"""
+code="""participants,budget,hotels,weeks=map(int,input().split())
+minPrice=1e7
+for i in range(hotels):
+    price=int(input())
+    beds=[*map(int,input().split())]
+    for j in range(weeks):
+        if beds[j]>=participants:
+            if price<minPrice:
+                minPrice=price
+ans=minPrice*participants
+print(ans if ans<budget else 'stay home')"""
 
 write_to_file("exec(bytes('"+Golf(code)+"','u16')[2:])")
