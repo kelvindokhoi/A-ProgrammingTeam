@@ -3,4 +3,8 @@
 # -~x = x + 1    
 # ~-x = x -1
 
-print("\u007E")
+# print("\u007E")
+
+
+
+exec('print("haha")')
