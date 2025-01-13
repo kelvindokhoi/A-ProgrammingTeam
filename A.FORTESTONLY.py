@@ -1,1 +1,3 @@
-while(a:=input())!="0":s={*map(int,input().split())};p=1;exec("m,t,*c=map(int,input().split());p&=t<=len(s&{*c});"*int(a.split()[1]));print("yes"if p else"no")
+m=[1,2,3,4]
+a,b=m[:2]
+print(a,b)
