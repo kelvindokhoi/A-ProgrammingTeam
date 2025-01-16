@@ -1,3 +1,1 @@
-m=[1,2,3,4]
-a,b=m[:2]
-print(a,b)
+i,j=int,input;exec('a,k=map(str,j().split())\nprint(a,[ if"9"in k else i(k,8),i(k),i(k,16));'*i(j()))
