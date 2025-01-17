@@ -1,1 +1,1 @@
-i,j=int,input;exec('a,k=map(str,j().split())\nprint(a,[ if"9"in k else i(k,8),i(k),i(k,16));'*i(j()))
+print(~-~-int(input()))
