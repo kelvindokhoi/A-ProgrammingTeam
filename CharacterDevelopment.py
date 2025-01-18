@@ -1,14 +1,7 @@
-from math import factorial
+_=int(input());print(2**_+~_)
 
 
-n=int(input())
-
-def ssum(n):
-    k=0
-    if n==0 or n==1:
-        return 0
-    for i in range(2,n):
-        k+= factorial(n)/factorial(n-i)/factorial(i)
-    return k+1
-
-print(int(ssum(n)))
+# from math import factorial as f;k=0
+# if(n:=int(input()))in[0,1]:print(0);exit()
+# for i in range(2,n):k+=f(n)/f(n-i)/f(i)
+# print(int(k+1))
