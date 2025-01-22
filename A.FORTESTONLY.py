@@ -1,11 +1,7 @@
-c,p=map(int,input().split())
-s=[*map(int,input().split())]
-q,w,e,r=range,sum,len,0
-if p<2:r=c+w([s[i]]*4==s[i:i+4]for i in q(e(s)-3))
-elif p<3:r=w([s[i]]*2==s[i:i+2]for i in q(e(s)-1))
-elif p<4:r=w([s[i],s[i],s[i]+1]==s[i:i+3]for i in q(e(s)-2))+w([s[i],s[i]-1]==s[i:i+2]for i in q(e(s)-1))
-elif p<5:r=w([s[i],s[i]-1,s[i]-1]==s[i:i+3]for i in q(e(s)-2))+w([s[i],s[i]+1]==s[i:i+2]for i in q(e(s)-1))
-elif p<6:r=w([[s[i]]*3==s[i:i+3]or[s[i],s[i]-1,s[i]]==s[i:i+3]for i in q(e(s)-2)])+w([s[i],s[i]+k]==s[i:i+2]for k in[1,-1]for i in q(e(s)-1))
-elif p<7:r=w([[s[i]]*3==s[i:i+3]or[s[i],s[i]+1,s[i]+1]==s[i:i+3]for i in q(e(s)-2)])+w([s[i],s[i]-2]==s[i:i+2]or[s[i]]*2==s[i:i+2]for i in q(e(s)-1))
-else:r=w([[s[i]]*3==s[i:i+3]or[s[i],s[i],s[i]-1]==s[i:i+3]for i in q(e(s)-2)])+w([s[i],s[i]+2]==s[i:i+2]or[s[i]]*2==s[i:i+2]for i in q(e(s)-1))
-print(r)
+N,t=map(int,input().split())
+A=list(map(int,input().split()))
+if t==1:S=set(A);print("Yes"if any(7777-x in S for x in S)else"No")
+elif t==2:print("Unique"if len(A)==len(set(A))else"Contains duplicate")
+elif t==3:from collections import Counter;c=Counter(A);r=[k for k,v in c.items()if v>N/2];print(' '.join(map(str,r))if len(r)else -1)
+elif t==4:A.sort();m=N//2;print(A[m]if N%2 else f"{A[m-1]} {A[m]}")
+elif t==5:print(*sorted(x for x in A if 99<x<1000))
