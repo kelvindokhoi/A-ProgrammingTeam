@@ -1,9 +1,10 @@
 import os
 
-code="""a=int(input());b=input()
-for i in range(a,1,-1):
-    print(f"{i} bottles of {b} on the wall, {i} bottles of {b}.\nTake one down, pass it around, {i-1} bottle{'s'if i-2 else''} of {b} on the wall.\n")
-print(f"1 bottle of {b} on the wall, 1 bottle of {b}.\nTake it down, pass it around, no more bottles of {b}.")"""
+code="""def D(y):w=sum(D(a)for a in t[y]);r=m[y]-1;w+=abs(r);m[y]=1;m[p[y]]+=r if p[y]!=-1 else 0;return w
+while(n:=int(input())):
+ t,m,p,l=[[]for _ in' '*n],[0]*n,[-1]*n,range
+ exec('v,q,_,*c=map(int,input().split());v-=1;c=[x-1 for x in c];t[v]=c;m[v]=q\nfor x in c:p[x]=v\n'*n)
+ print(D([x for x in l(n)if p[x]<0][0]))"""
 
 def get_absolute_path(filename):
     current_dir = os.path.dirname(os.path.abspath(__file__))

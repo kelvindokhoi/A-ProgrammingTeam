@@ -4,11 +4,11 @@
 
 
 N,t,*A,=map(int,open(0).read().split())
-if t==1:S=set(A);print(["No","Yes"][any(7777-x in S for x in S)])
+if t==1:S={*A};print(["No","Yes"][any(7777-x in S for x in S)])
 if t==2:print(["Contains duplicate","Unique"][len(A)==len({*A})])
-if t==3:from collections import Counter;c=Counter(A);r=[k for k,v in c.items()if v>N/2];print(' '.join(map(str,r))if len(r)else -1)
-if t==4:A.sort();m=N//2;print([f"{A[m-1]} {A[m]}",A[m]][N%2])
-if t==5:print(*sorted(x for x in A if 99<x<1000))
+if t==3:from collections import*;r=[k for k,v in Counter(A).items()if v>N/2];print(r[0]if len(r)else~0)
+if t==4:A.sort();print([f"{A[(m:=N//2)-1]} {A[m]}",A[m]][N%2])
+if t==5:print(*sorted(x for x in A if 99<x<1e3))
 
 
 # N,t,*A,=map(int,open(0).read().split())

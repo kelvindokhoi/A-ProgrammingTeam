@@ -1,7 +1,21 @@
-N,t=map(int,input().split())
-A=list(map(int,input().split()))
-if t==1:S=set(A);print("Yes"if any(7777-x in S for x in S)else"No")
-elif t==2:print("Unique"if len(A)==len(set(A))else"Contains duplicate")
-elif t==3:from collections import Counter;c=Counter(A);r=[k for k,v in c.items()if v>N/2];print(' '.join(map(str,r))if len(r)else -1)
-elif t==4:A.sort();m=N//2;print(A[m]if N%2 else f"{A[m-1]} {A[m]}")
-elif t==5:print(*sorted(x for x in A if 99<x<1000))
+import timeit
+
+# Benchmark for a.append(2)
+def test_append():
+    a = []
+    for i in range(10):
+        a.append([2])
+    print(a)
+
+# Benchmark for a += [2]
+def test_inplace_add():
+    a = []
+    a += [2]*10
+    print(a)
+
+# Measure time
+append_time = timeit.timeit(test_append, number=1000)
+inplace_add_time = timeit.timeit(test_inplace_add, number=1000)
+
+print(f"a.append(2): {append_time:.6f} seconds")
+print(f"a += [2]: {inplace_add_time:.6f} seconds")
