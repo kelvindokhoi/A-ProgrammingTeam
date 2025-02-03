@@ -1,21 +1,15 @@
-import timeit
-
-# Benchmark for a.append(2)
-def test_append():
-    a = []
-    for i in range(10):
-        a.append([2])
-    print(a)
-
-# Benchmark for a += [2]
-def test_inplace_add():
-    a = []
-    a += [2]*10
-    print(a)
-
-# Measure time
-append_time = timeit.timeit(test_append, number=1000)
-inplace_add_time = timeit.timeit(test_inplace_add, number=1000)
-
-print(f"a.append(2): {append_time:.6f} seconds")
-print(f"a += [2]: {inplace_add_time:.6f} seconds")
+def do(i):
+    U[i] = U[(i+1)%N] = U[(i-1)%N] = 1;print(f'curr map: {U}'); print(i+1); s = int(input())-1
+    if s == -2: exit(0)
+    U[s] = 1; return s
+N, _ = map(int, input().split()); U = [0]*N
+s = int(input())-1; U[s] = 1
+print(f'curr map: {U}')
+if N%2 == 0:
+    while True: s=do(N-1-s)
+else:
+    do(-U[0]%N)
+    for i in range(N):
+        print(i)
+        U[i] or do(i)
+        print(U)
