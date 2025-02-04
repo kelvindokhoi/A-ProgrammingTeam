@@ -1,15 +1,18 @@
-def do(i):
-    U[i] = U[(i+1)%N] = U[(i-1)%N] = 1;print(f'curr map: {U}'); print(i+1); s = int(input())-1
-    if s == -2: exit(0)
-    U[s] = 1; return s
-N, _ = map(int, input().split()); U = [0]*N
-s = int(input())-1; U[s] = 1
-print(f'curr map: {U}')
-if N%2 == 0:
-    while True: s=do(N-1-s)
-else:
-    do(-U[0]%N)
-    for i in range(N):
-        print(i)
-        U[i] or do(i)
-        print(U)
+from math import *
+import heapq
+for i in range(int(input())):
+    input()
+    untrvl = [tuple(map(float,input().split())) for _ in range(int(input()))]
+    passed = set([untrvl.pop()])
+    sum=0
+    edges=[]
+    for p1 in untrvl:
+        for p2 in passed:
+            heapq.heappush(edges,(dist(p1,p2),p1))
+    while untrvl:
+        w,point = heapq.heappop(edges)
+        if point in passed:continue
+        sum+=w;passed.add(point);untrvl.remove(point)
+        for pt in untrvl:
+            pt in passed or heapq.heappush(edges, (dist(point,pt), pt))
+    print(f"{sum:.2f}")
