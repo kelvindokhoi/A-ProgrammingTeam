@@ -1,33 +1,43 @@
 # 11513-9_Puzzle.py
 
-# strat: shift the number to match the 0st=1, 4st=5, 8th=9.
 from collections import deque
-def move(original,type,val):
-    new = original.copy()
-    if type==1:#case h, which is -> right
-        nv = val-1
-        new[nv*3],new[nv*3+1],new[nv*3+2]=new[nv*3+1],new[nv*3+2],new[nv*3]
-        return new
-    else:#case v, which is -> up
-        new[val-1],new[val+2],new[val+5]=new[val+2],new[val+5],new[val-1]
-        return new
-
-    
+def move(original, type, val):
+    new = list(original)
+    if type == 1:  # case h, which is -> right
+        row_start = (val - 1) * 3
+        new[row_start], new[row_start + 1], new[row_start + 2] = new[row_start + 1], new[row_start+2], new[row_start]
+    else:  # case v, which is -> up
+        col_start = val - 1
+        new[col_start], new[col_start + 3], new[col_start + 6] = new[col_start + 6], new[col_start], new[col_start + 3]
+    return ''.join(new)
 
 cached_Solution = {'123456789':('',0)}
-mydeq = deque('123456789')
+mydeq = deque()
+mydeq.append(['123456789','',0])
 while mydeq:
-    current = mydeq.pop()
-    H1 = move(current,1,1)
-    if H1 not in cached_Solution:
-        pass
-    H2 = move(current,1,2)
-    H3 = move(current,1,3)
-    V1 = move(current,0,1)
-    V2 = move(current,0,2)
-    V3 = move(current,0,3)
-while (n1:=input().split())!='0':
+    current,sol,num_mov = mydeq.popleft()
+    num_mov+=1
+    for i in range(1, 4):
+        H = move(current, 1, i)
+        if H not in cached_Solution:
+            cached_Solution[H] = (f'H{i}'+sol, num_mov)
+            mydeq.append((H, f'H{i}'+sol, num_mov))
+        V = move(current, 0, i)
+        if V not in cached_Solution:
+            cached_Solution[V] = (f'V{i}'+sol, num_mov)
+            mydeq.append((V, f'V{i}'+sol, num_mov))
+# print(cached_Solution) #the fcking sols
+n1=input().split()
+while True:
+    if n1==['0']:
+        break
     n2=input().split()
     n3=input().split()
     grid=n1+n2+n3
-    
+    grid=''.join(grid)
+    if grid in cached_Solution:
+        solution,num = cached_Solution[grid]
+        print(num,solution)
+    else:
+        print('Not solvable')
+    n1=input().split()
