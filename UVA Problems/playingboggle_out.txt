@@ -1,0 +1,3 @@
+Score for Boggle game #1: 6
+Score for Boggle game #2: 1
+Total time elapsed: 0.048990726470947266
