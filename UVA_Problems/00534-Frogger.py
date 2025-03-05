@@ -1,5 +1,5 @@
 from math import dist
-from queue import Queue
+from collections import deque
 # Kruskal
 # DFS
 # DP
@@ -51,19 +51,17 @@ while True:
         MST_adjacency_list[y].append((d,x))
     maxjump = [-1]*n
     maxjump[0] = 0
-    myq = Queue()
-    myq.put(0)
+    myq = deque([0])
     while myq:
-        curr = myq.get()
+        curr = myq.popleft()
         for d,p in MST_adjacency_list[curr]:
             if maxjump[p]==-1:
                 maxjump[p] = max(maxjump[curr],d)
-                myq.put(p)
+                myq.append(p)
     print(f"Scenario #{counter}")
     counter+=1
     print(f"Frog Distance = {maxjump[1]:.3f}")
     print()
-
 
 
 
