@@ -1,0 +1,8 @@
+1
+6
+buy 10 shares at 50
+buy 20 shares at 52
+sell 5 shares at 48
+sell 15 shares at 51
+buy 10 shares at 49
+sell 10 shares at 50
