@@ -1,34 +1,25 @@
 # Spiderman's Workout
 
+for _ in range(int(input())):
+    num_moves = int(input())
+    move_map = map(int,input().split())
+    max_height = sum(move_map)
+    dp_map = [[float('inf')]*(max_height+1) for _ in ' '*(num_moves+1)]
+    choice = [['']*(max_height+1) for _ in ' '*(num_moves+1)]
+    dp_map[0][0] = 0
+    for i in range(1,num_moves+1):
+        distance = move_map[i-1]
+        for j in range(1,max_height):
+            if j>=distance:
+                newmax = max(dp_map[i-1][j-distance],j)
+                if newmax < dp_map[i][j]:
+                    dp_map[i][j] = newmax
+                    choice[i][j] = 'U'
+            if j+distance<= max_height:
+                newmax = max(dp_map[i-1][j+distance],j+distance)
+                if newmax < dp_map[i][j]:
+                    dp_map[i][j] = newmax
+                    choice[i][j] = 'D'
+                    
 
 
-from collections import deque
-cases = int(input())
-for i in range(cases):
-    maxj = int(input())
-    jumpmap = [*map(int,input().split())]
-    myq = deque()
-    myq.append((jumpmap[0],'U',0,jumpmap[0]))
-    solutions = []
-    while myq:
-        currmax,currm,movetaken,currh = myq.popleft()
-        if movetaken==7 and currh==0:
-            solutions.append((currmax,currm))
-        else:
-            nexttaken = movetaken+1
-            nextstep = jumpmap[nexttaken]
-            
-
-    currh=0
-    currm = ''
-    for move in jumpmap:
-        if currh-move>=0:
-            currm+='D'
-            currh-=move
-        else :
-            currm+='U'
-            currh+=move
-    if currh==0:
-        print(currm)
-    else:
-        print('IMPOSSIBLE')
