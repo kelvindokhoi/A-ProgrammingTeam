@@ -1,1 +1,1 @@
-print('buy'<'c')
+print(1e3)
