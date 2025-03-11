@@ -1,0 +1,194 @@
+# Python Regex Practice Problems
+
+This document contains a collection of beginner-friendly regular expression problems to practice with Python's `re` module.
+
+## Getting Started
+
+In Python, you'll need to import the `re` module to work with regular expressions:
+
+```python
+import re
+```
+
+## Problem 1: Match a specific string
+
+**Task**: Write a regex pattern that matches the exact string "python".
+
+**Example**:
+- "I love python programming" ➡ Should match "python"
+- "Python is fun" ➡ Should not match (case sensitive)
+- "typhoon" ➡ Should not match
+
+**Solution**:
+```python
+import re
+pattern = r"python"
+text = "I love python programming"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['python']
+```
+
+## Problem 2: Match digits
+
+**Task**: Write a regex pattern that matches any single digit.
+
+**Example**:
+- "There are 365 days in a year" ➡ Should match "3", "6", "5"
+- "No numbers here" ➡ Should not match anything
+
+**Solution**:
+```python
+import re
+pattern = r"\d"
+text = "There are 365 days in a year"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['3', '6', '5']
+```
+
+## Problem 3: Match word characters
+
+**Task**: Write a regex pattern that matches sequences of alphanumeric characters (letters, numbers, and underscores).
+
+**Example**:
+- "user123_admin" ➡ Should match "user123_admin"
+- "user@example.com" ➡ Should match "user", "example", "com"
+
+**Solution**:
+```python
+import re
+pattern = r"\w+"
+text = "user123_admin"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['user123_admin']
+```
+
+## Problem 4: Match email addresses
+
+**Task**: Write a simple regex pattern that matches basic email addresses.
+
+**Example**:
+- "Contact us at info@example.com or support@company.org"
+  ➡ Should match "info@example.com" and "support@company.org"
+
+**Solution**:
+```python
+import re
+pattern = r"\w+@\w+\.\w+"
+text = "Contact us at info@example.com or support@company.org"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['info@example.com', 'support@company.org']
+```
+
+## Problem 5: Extract phone numbers
+
+**Task**: Write a regex pattern that matches phone numbers in the format XXX-XXX-XXXX.
+
+**Example**:
+- "Call me at 123-456-7890 or 555-123-4567"
+  ➡ Should match "123-456-7890" and "555-123-4567"
+
+**Solution**:
+```python
+import re
+pattern = r"\d{3}-\d{3}-\d{4}"
+text = "Call me at 123-456-7890 or 555-123-4567"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['123-456-7890', '555-123-4567']
+```
+
+## Problem 6: Match HTML tags
+
+**Task**: Write a regex pattern that matches simple HTML tags.
+
+**Example**:
+- "<p>This is a paragraph</p><br><div>This is a div</div>"
+  ➡ Should match "<p>", "</p>", "<br>", "<div>", "</div>"
+
+**Solution**:
+```python
+import re
+pattern = r"<[^>]+>"
+text = "<p>This is a paragraph</p><br><div>This is a div</div>"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['<p>', '</p>', '<br>', '<div>', '</div>']
+```
+
+## Problem 7: Extract dates
+
+**Task**: Write a regex pattern that matches dates in the format MM/DD/YYYY.
+
+**Example**:
+- "Important dates: 01/01/2023, 12/25/2023, and 07/04/2023"
+  ➡ Should match "01/01/2023", "12/25/2023", and "07/04/2023"
+
+**Solution**:
+```python
+import re
+pattern = r"\d{2}/\d{2}/\d{4}"
+text = "Important dates: 01/01/2023, 12/25/2023, and 07/04/2023"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['01/01/2023', '12/25/2023', '07/04/2023']
+```
+
+## Problem 8: Match words starting with a specific letter
+
+**Task**: Write a regex pattern that matches all words starting with the letter 'p'.
+
+**Example**:
+- "Peter picked a peck of pickled peppers"
+  ➡ Should match "Peter", "picked", "peck", "pickled", "peppers"
+
+**Solution**:
+```python
+import re
+pattern = r"\bp\w*\b"  # \b denotes word boundary
+text = "Peter picked a peck of pickled peppers"
+matches = re.findall(pattern, text, re.IGNORECASE)
+print(matches)  # Output: ['Peter', 'picked', 'peck', 'pickled', 'peppers']
+```
+
+## Problem 9: Validate URLs
+
+**Task**: Write a regex pattern that matches http or https URLs.
+
+**Example**:
+- "Visit https://www.example.com or http://docs.python.org"
+  ➡ Should match "https://www.example.com" and "http://docs.python.org"
+
+**Solution**:
+```python
+import re
+pattern = r"https?://\S+"
+text = "Visit https://www.example.com or http://docs.python.org"
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['https://www.example.com', 'http://docs.python.org']
+```
+
+## Problem 10: Extract text between quotes
+
+**Task**: Write a regex pattern that extracts text enclosed within double quotes.
+
+**Example**:
+- 'She said "hello" and then "goodbye"'
+  ➡ Should match "hello" and "goodbye"
+
+**Solution**:
+```python
+import re
+pattern = r'"([^"]*)"'
+text = 'She said "hello" and then "goodbye"'
+matches = re.findall(pattern, text)
+print(matches)  # Output: ['hello', 'goodbye']
+```
+
+## Practice Exercises
+
+Try these problems on your own:
+
+1. Write a pattern to extract ZIP codes (5 digits)
+2. Write a pattern to validate a password (must be 8+ characters, contain uppercase, lowercase, and a number)
+3. Write a pattern to match words ending with 'ing'
+4. Write a pattern to extract hashtags from a social media post
+5. Write a pattern to match IP addresses
+
+Remember, regex patterns can often be written in multiple ways to achieve the same result. Experiment with different approaches!
