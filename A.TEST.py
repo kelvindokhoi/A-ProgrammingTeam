@@ -1,1 +1,1 @@
-print(ord('A'))
+print('w'if '.' in '...' else 'b')
