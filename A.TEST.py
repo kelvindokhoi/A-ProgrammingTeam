@@ -1,1 +1,1 @@
-print('w'if '.' in '...' else 'b')
+print(56>>5)
