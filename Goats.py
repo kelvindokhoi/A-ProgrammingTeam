@@ -2,7 +2,7 @@
 from math import sqrt, acos, pi
 
 
-def calc_middle(a,b,c,a2,b2,c2):return a2*acos((c2-b2+a2)/(2*c*a)) - b2*acos((c2-a2+b2)/(2*b*c)) + sqrt((c-a+b)*(c+a-b)*(a+b-c)*(c+a+b))/2
+def calc_middle(a,b,c,a2,b2,c2):return a2*acos((c2-b2+a2)/(2*c*a)) + b2*acos((c2-a2+b2)/(2*b*c)) - sqrt((c-a+b)*(c+a-b)*(a+b-c)*(c+a+b))/2
 
 def BinarySearch(tries,min_a,max_a,b,c):
     a = (min_a+max_a)/2
@@ -37,4 +37,3 @@ for _ in' '*int(input()):
     a = BinarySearch(10000,0,2e9,b,c)
     result = pi*a*a - (calc_middle(a,b,c,a*a,b*b,c*c) if c<a+b and abs(a-b)<c else (pi*b*b if a>=b and a-b>=c else 0))
     print(f'{result} = {pi*b*b}, with a = {a}')
-
