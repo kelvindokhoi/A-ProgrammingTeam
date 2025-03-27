@@ -1,40 +1,27 @@
-# Goats
-from math import sqrt, acos, pi
+import re
 
-
-def calc_middle(a,b,c,a2,b2,c2):return a2*acos((c2-b2+a2)/(2*c*a)) - b2*acos((c2-a2+b2)/(2*b*c)) + sqrt((c-a+b)*(c+a-b)*(a+b-c)*(c+a+b))/2
-
-def BinarySearch(tries,min_a,max_a,b,c):
-    a = (min_a+max_a)/2
-    a2 = a**2
-    b2 = b**2
-    c2 = c**2
-    lhs = pi*b2
-    for _ in' '*tries:
-        # too far no intersect
-        if c>=a+b:
-            rhs = pi*a2
-        # c2 inside c1
-        elif a-b>=c and a>=b:
-            rhs = pi*(a2-b2)
-        # c1 inside c2
-        elif b>=a+c and b>=a:
-            rhs = 0
-        else:
-            rhs = pi*a2-calc_middle(a,b,c,a2,b2,c2)
-        if abs(rhs-lhs)<1e-9:
-            return a
-        if rhs>lhs:
-            max_a = a
-        else:
-            min_a = a
-        a = (max_a+min_a)/2
-        a2 = a**2
-    return a
+def kmp(t,p):
+    n,m=len(t),len(p);l=[0]*m;j=0
+    if m<1:return[0]*(n>-1)
+    if n<1:return[]
+    for i in range(1,m):
+        while j and p[i]!=p[j]:j=l[j-1]
+        j+=p[i]==p[j];l[i]=j
+    i=j=0;r=[]
+    while i<n:
+        while i<n and j<m and t[i]==p[j]:i,j=i+1,j+1
+        if j==m:r+=[i-j];j=l[j-1]
+        elif j:j=l[j-1]
+        else:i+=1
+    return r
 
 for _ in' '*int(input()):
-    b,c = map(float,input().split())
-    a = BinarySearch(10000,0,2e9,b,c)
-    result = pi*a*a - (calc_middle(a,b,c,a*a,b*b,c*c) if c<a+b and abs(a-b)<c else (pi*b*b if a>=b and a-b>=c else 0))
-    print(f'{result} = {pi*b*b}, with a = {a}')
-
+    fish_tank = [re.sub(r'{+','{',re.sub(r'}+','}',re.sub(r'\(+','(',re.sub(r'\)+',')',input())))) for _ in' '*int(input().split()[0])]
+    flounder = 0
+    koi = 0
+    trout = 0
+    for line in fish_tank:
+        flounder += (len(kmp(line,r'><(">'))+len(kmp(line,r'<")><'))+len(kmp(line,r'<"}><'))+len(kmp(line,r'><{">')))
+        koi += (len(kmp(line,r'><(*>')) + len(kmp(line,r'<*)><')) + len(kmp(line,r'<*}><'))+ len(kmp(line,r'><{*>')))
+        trout += (len(kmp(line,r"><{'>")) + len(kmp(line,r"<'}><")) + len(kmp(line,r"<')><")) + len(kmp(line,r"><('>")))
+    print(flounder,koi,trout)
