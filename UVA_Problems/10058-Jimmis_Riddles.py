@@ -16,9 +16,9 @@
 
 def debug_wrapper(func):
     def wrapper(*args, **kwargs):
-        #print(f"Entering {func.__name__} with args: {args}, kwargs: {kwargs}")
+        # print(f"Entering {func.__name__} with args: {args}, kwargs: {kwargs}")
         result = func(*args, **kwargs)
-        #print(f"Exiting {func.__name__} with result: {result}")
+        # print(f"Exiting {func.__name__} with result: {result}")
         return result
     return wrapper
 

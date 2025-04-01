@@ -1,28 +1,472 @@
+Entering statement with args: (['tom', 'hates', 'jerry', ',', ',', 'jimmy', 'hates', 'tom'],), kwargs: {}
+Entering action with args: (['tom', 'hates', 'jerry', ',', ',', 'jimmy', 'hates', 'tom'], 0, 8), kwargs: {}
+Entering active_list with args: (['tom', 'hates', 'jerry', ',', ',', 'jimmy', 'hates', 'tom'], 0, 8), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', ',', ',', 'jimmy', 'hates', 'tom'], 0, 8), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hates', 'jerry', ',', ',', 'jimmy', 'hates', 'tom'], 1, 8), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['tom', 'hates', 'jerry', ',', ',', 'jimmy', 'hates', 'tom'], 2, 8), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', ',', ',', 'jimmy', 'hates', 'tom'], 2, 8), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Entering statement with args: ([',', 'jimmy', 'hates', 'tom'],), kwargs: {}
+Entering action with args: ([',', 'jimmy', 'hates', 'tom'], 0, 4), kwargs: {}
+Entering active_list with args: ([',', 'jimmy', 'hates', 'tom'], 0, 4), kwargs: {}
+Entering actor with args: ([',', 'jimmy', 'hates', 'tom'], 0, 4), kwargs: {}
+Exiting actor with result: -1
+Exiting active_list with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['jimmy'],), kwargs: {}
+Entering action with args: (['jimmy'], 0, 1), kwargs: {}
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['a', 'hate'],), kwargs: {}
+Entering action with args: (['a', 'hate'], 0, 2), kwargs: {}
+Entering active_list with args: (['a', 'hate'], 0, 2), kwargs: {}
+Entering actor with args: (['a', 'hate'], 0, 2), kwargs: {}
+Exiting actor with result: -1
+Exiting active_list with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['jimmy', 'hates', 'tom', ','],), kwargs: {}
+Entering action with args: (['jimmy', 'hates', 'tom', ','], 0, 4), kwargs: {}
+Entering active_list with args: (['jimmy', 'hates', 'tom', ','], 0, 4), kwargs: {}
+Entering actor with args: (['jimmy', 'hates', 'tom', ','], 0, 4), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['jimmy', 'hates', 'tom', ','], 1, 4), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['jimmy', 'hates', 'tom', ','], 2, 4), kwargs: {}
+Entering actor with args: (['jimmy', 'hates', 'tom', ','], 2, 4), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['jimmy', 'hate'],), kwargs: {}
+Entering action with args: (['jimmy', 'hate'], 0, 2), kwargs: {}
+Entering active_list with args: (['jimmy', 'hate'], 0, 2), kwargs: {}
+Entering actor with args: (['jimmy', 'hate'], 0, 2), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'hates', 'jerry', ',', 'jimmy', 'hates', 'tom'],), kwargs: {}
+Entering action with args: (['tom', 'hates', 'jerry', ',', 'jimmy', 'hates', 'tom'], 0, 7), kwargs: {}
+Entering active_list with args: (['tom', 'hates', 'jerry', ',', 'jimmy', 'hates', 'tom'], 0, 7), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', ',', 'jimmy', 'hates', 'tom'], 0, 7), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hates', 'jerry', ',', 'jimmy', 'hates', 'tom'], 1, 7), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['tom', 'hates', 'jerry', ',', 'jimmy', 'hates', 'tom'], 2, 7), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', ',', 'jimmy', 'hates', 'tom'], 2, 7), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Entering statement with args: (['jimmy', 'hates', 'tom'],), kwargs: {}
+Entering action with args: (['jimmy', 'hates', 'tom'], 0, 3), kwargs: {}
+Entering active_list with args: (['jimmy', 'hates', 'tom'], 0, 3), kwargs: {}
+Entering actor with args: (['jimmy', 'hates', 'tom'], 0, 3), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['jimmy', 'hates', 'tom'], 1, 3), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['jimmy', 'hates', 'tom'], 2, 3), kwargs: {}
+Entering actor with args: (['jimmy', 'hates', 'tom'], 2, 3), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Exiting statement with result: 1
+Exiting statement with result: 1
 YES I WILL
+Entering statement with args: (['hates'],), kwargs: {}
+Entering action with args: (['hates'], 0, 1), kwargs: {}
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['jimmy', 'hates', 'tom'],), kwargs: {}
+Entering action with args: (['jimmy', 'hates', 'tom'], 0, 3), kwargs: {}
+Entering active_list with args: (['jimmy', 'hates', 'tom'], 0, 3), kwargs: {}
+Entering actor with args: (['jimmy', 'hates', 'tom'], 0, 3), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['jimmy', 'hates', 'tom'], 1, 3), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['jimmy', 'hates', 'tom'], 2, 3), kwargs: {}
+Entering actor with args: (['jimmy', 'hates', 'tom'], 2, 3), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Exiting statement with result: 1
 YES I WILL
+Entering statement with args: (['hate', 'hate', 'hate'],), kwargs: {}
+Entering action with args: (['hate', 'hate', 'hate'], 0, 3), kwargs: {}
+Entering active_list with args: (['hate', 'hate', 'hate'], 0, 3), kwargs: {}
+Entering actor with args: (['hate', 'hate', 'hate'], 0, 3), kwargs: {}
+Exiting actor with result: -1
+Exiting active_list with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'and', 'tom', 'and', 'tom', 'hatessssssssss', 'tom', ',', 'tom', 'hates', 'tom'],), kwargs: {}
+Entering action with args: (['tom', 'and', 'tom', 'and', 'tom', 'hatessssssssss', 'tom', ',', 'tom', 'hates', 'tom'], 0, 11), kwargs: {}
+Entering active_list with args: (['tom', 'and', 'tom', 'and', 'tom', 'hatessssssssss', 'tom', ',', 'tom', 'hates', 'tom'], 0, 11), kwargs: {}
+Entering actor with args: (['tom', 'and', 'tom', 'and', 'tom', 'hatessssssssss', 'tom', ',', 'tom', 'hates', 'tom'], 0, 11), kwargs: {}
+Exiting actor with result: 1
+Entering actor with args: (['tom', 'and', 'tom', 'and', 'tom', 'hatessssssssss', 'tom', ',', 'tom', 'hates', 'tom'], 2, 11), kwargs: {}
+Exiting actor with result: 3
+Entering actor with args: (['tom', 'and', 'tom', 'and', 'tom', 'hatessssssssss', 'tom', ',', 'tom', 'hates', 'tom'], 4, 11), kwargs: {}
+Exiting actor with result: 5
+Exiting active_list with result: 5
+Entering verb with args: (['tom', 'and', 'tom', 'and', 'tom', 'hatessssssssss', 'tom', ',', 'tom', 'hates', 'tom'], 5, 11), kwargs: {}
+Exiting verb with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'lovesssssssss', 'jimmy'],), kwargs: {}
+Entering action with args: (['tom', 'lovesssssssss', 'jimmy'], 0, 3), kwargs: {}
+Entering active_list with args: (['tom', 'lovesssssssss', 'jimmy'], 0, 3), kwargs: {}
+Entering actor with args: (['tom', 'lovesssssssss', 'jimmy'], 0, 3), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'lovesssssssss', 'jimmy'], 1, 3), kwargs: {}
+Exiting verb with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'like', 'jum'],), kwargs: {}
+Entering action with args: (['tom', 'like', 'jum'], 0, 3), kwargs: {}
+Entering active_list with args: (['tom', 'like', 'jum'], 0, 3), kwargs: {}
+Entering actor with args: (['tom', 'like', 'jum'], 0, 3), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'like', 'jum'], 1, 3), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['tom', 'like', 'jum'], 2, 3), kwargs: {}
+Entering actor with args: (['tom', 'like', 'jum'], 2, 3), kwargs: {}
+Exiting actor with result: -1
+Exiting active_list with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'hatess', 'jerry', ',', 'mickey', 'loves', 'goofy'],), kwargs: {}
+Entering action with args: (['tom', 'hatess', 'jerry', ',', 'mickey', 'loves', 'goofy'], 0, 7), kwargs: {}
+Entering active_list with args: (['tom', 'hatess', 'jerry', ',', 'mickey', 'loves', 'goofy'], 0, 7), kwargs: {}
+Entering actor with args: (['tom', 'hatess', 'jerry', ',', 'mickey', 'loves', 'goofy'], 0, 7), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hatess', 'jerry', ',', 'mickey', 'loves', 'goofy'], 1, 7), kwargs: {}
+Exiting verb with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['mickey', 'lovess', 'goofy', 'and', 'jerry', ',', 'tom', 'loves', 'goofy', 'and', 'mickey', 'and', 'jerry', ',', 'the', 'jerry', 'loves', 'a', 'goofy', 'and', 'a', 'tom', 'and', 'a', 'mickey', 'and', 'the', 'jerry', 'and', 'the', 'tom', 'and', 'the', 'mickey', 'and', 'a', 'jerry', 'and', 'a', 'tom', 'and', 'a', 'mickey', ',', 'tom', 'loves', 'a', 'cat', ',', 'jerry', 'loves', 'a', 'dog'],), kwargs: {}
+Entering action with args: (['mickey', 'lovess', 'goofy', 'and', 'jerry', ',', 'tom', 'loves', 'goofy', 'and', 'mickey', 'and', 'jerry', ',', 'the', 'jerry', 'loves', 'a', 'goofy', 'and', 'a', 'tom', 'and', 'a', 'mickey', 'and', 'the', 'jerry', 'and', 'the', 'tom', 'and', 'the', 'mickey', 'and', 'a', 'jerry', 'and', 'a', 'tom', 'and', 'a', 'mickey', ',', 'tom', 'loves', 'a', 'cat', ',', 'jerry', 'loves', 'a', 'dog'], 0, 53), kwargs: {}
+Entering active_list with args: (['mickey', 'lovess', 'goofy', 'and', 'jerry', ',', 'tom', 'loves', 'goofy', 'and', 'mickey', 'and', 'jerry', ',', 'the', 'jerry', 'loves', 'a', 'goofy', 'and', 'a', 'tom', 'and', 'a', 'mickey', 'and', 'the', 'jerry', 'and', 'the', 'tom', 'and', 'the', 'mickey', 'and', 'a', 'jerry', 'and', 'a', 'tom', 'and', 'a', 'mickey', ',', 'tom', 'loves', 'a', 'cat', ',', 'jerry', 'loves', 'a', 'dog'], 0, 53), kwargs: {}
+Entering actor with args: (['mickey', 'lovess', 'goofy', 'and', 'jerry', ',', 'tom', 'loves', 'goofy', 'and', 'mickey', 'and', 'jerry', ',', 'the', 'jerry', 'loves', 'a', 'goofy', 'and', 'a', 'tom', 'and', 'a', 'mickey', 'and', 'the', 'jerry', 'and', 'the', 'tom', 'and', 'the', 'mickey', 'and', 'a', 'jerry', 'and', 'a', 'tom', 'and', 'a', 'mickey', ',', 'tom', 'loves', 'a', 'cat', ',', 'jerry', 'loves', 'a', 'dog'], 0, 53), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['mickey', 'lovess', 'goofy', 'and', 'jerry', ',', 'tom', 'loves', 'goofy', 'and', 'mickey', 'and', 'jerry', ',', 'the', 'jerry', 'loves', 'a', 'goofy', 'and', 'a', 'tom', 'and', 'a', 'mickey', 'and', 'the', 'jerry', 'and', 'the', 'tom', 'and', 'the', 'mickey', 'and', 'a', 'jerry', 'and', 'a', 'tom', 'and', 'a', 'mickey', ',', 'tom', 'loves', 'a', 'cat', ',', 'jerry', 'loves', 'a', 'dog'], 1, 53), kwargs: {}
+Exiting verb with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'],), kwargs: {}
+Entering action with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 0, 13), kwargs: {}
+Entering active_list with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 0, 13), kwargs: {}
+Entering actor with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 0, 13), kwargs: {}
+Exiting actor with result: 2
+Entering actor with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 3, 13), kwargs: {}
+Exiting actor with result: 5
+Entering actor with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 6, 13), kwargs: {}
+Exiting actor with result: 7
+Entering actor with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 8, 13), kwargs: {}
+Exiting actor with result: 9
+Exiting active_list with result: 9
+Entering verb with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 9, 13), kwargs: {}
+Exiting verb with result: 10
+Entering active_list with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 10, 13), kwargs: {}
+Entering actor with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 10, 13), kwargs: {}
+Exiting actor with result: 11
+Entering actor with args: (['the', 'tom', 'and', 'the', 'jerry', 'and', 'goofy', 'and', 'mickey', 'like', 'cat', 'and', 'mouse'], 12, 13), kwargs: {}
+Exiting actor with result: 13
+Exiting active_list with result: 13
+Exiting action with result: 13
+Exiting statement with result: 1
 YES I WILL
+Entering statement with args: (['tom', 'likes', 'jerry', ',', 'jerry', 'and', 'goofy', 'hate', 'mickey'],), kwargs: {}
+Entering action with args: (['tom', 'likes', 'jerry', ',', 'jerry', 'and', 'goofy', 'hate', 'mickey'], 0, 9), kwargs: {}
+Entering active_list with args: (['tom', 'likes', 'jerry', ',', 'jerry', 'and', 'goofy', 'hate', 'mickey'], 0, 9), kwargs: {}
+Entering actor with args: (['tom', 'likes', 'jerry', ',', 'jerry', 'and', 'goofy', 'hate', 'mickey'], 0, 9), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'likes', 'jerry', ',', 'jerry', 'and', 'goofy', 'hate', 'mickey'], 1, 9), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['tom', 'likes', 'jerry', ',', 'jerry', 'and', 'goofy', 'hate', 'mickey'], 2, 9), kwargs: {}
+Entering actor with args: (['tom', 'likes', 'jerry', ',', 'jerry', 'and', 'goofy', 'hate', 'mickey'], 2, 9), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Entering statement with args: (['jerry', 'and', 'goofy', 'hate', 'mickey'],), kwargs: {}
+Entering action with args: (['jerry', 'and', 'goofy', 'hate', 'mickey'], 0, 5), kwargs: {}
+Entering active_list with args: (['jerry', 'and', 'goofy', 'hate', 'mickey'], 0, 5), kwargs: {}
+Entering actor with args: (['jerry', 'and', 'goofy', 'hate', 'mickey'], 0, 5), kwargs: {}
+Exiting actor with result: 1
+Entering actor with args: (['jerry', 'and', 'goofy', 'hate', 'mickey'], 2, 5), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Entering verb with args: (['jerry', 'and', 'goofy', 'hate', 'mickey'], 3, 5), kwargs: {}
+Exiting verb with result: 4
+Entering active_list with args: (['jerry', 'and', 'goofy', 'hate', 'mickey'], 4, 5), kwargs: {}
+Entering actor with args: (['jerry', 'and', 'goofy', 'hate', 'mickey'], 4, 5), kwargs: {}
+Exiting actor with result: 5
+Exiting active_list with result: 5
+Exiting action with result: 5
+Exiting statement with result: 1
+Exiting statement with result: 1
 YES I WILL
+Entering statement with args: (['jimmy', 'knows', 'a', 'cat', ',', 'the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'],), kwargs: {}
+Entering action with args: (['jimmy', 'knows', 'a', 'cat', ',', 'the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 0, 15), kwargs: {}
+Entering active_list with args: (['jimmy', 'knows', 'a', 'cat', ',', 'the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 0, 15), kwargs: {}
+Entering actor with args: (['jimmy', 'knows', 'a', 'cat', ',', 'the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 0, 15), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['jimmy', 'knows', 'a', 'cat', ',', 'the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 1, 15), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['jimmy', 'knows', 'a', 'cat', ',', 'the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 2, 15), kwargs: {}
+Entering actor with args: (['jimmy', 'knows', 'a', 'cat', ',', 'the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 2, 15), kwargs: {}
+Exiting actor with result: 4
+Exiting active_list with result: 4
+Exiting action with result: 4
+Entering statement with args: (['the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'],), kwargs: {}
+Entering action with args: (['the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 0, 10), kwargs: {}
+Entering active_list with args: (['the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 0, 10), kwargs: {}
+Entering actor with args: (['the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 0, 10), kwargs: {}
+Exiting actor with result: 2
+Exiting active_list with result: 2
+Entering verb with args: (['the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 2, 10), kwargs: {}
+Exiting verb with result: 3
+Entering active_list with args: (['the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 3, 10), kwargs: {}
+Entering actor with args: (['the', 'cat', 'likes', 'mouse', ',', 'the', 'mouse', 'hates', 'the', 'cat'], 3, 10), kwargs: {}
+Exiting actor with result: 4
+Exiting active_list with result: 4
+Exiting action with result: 4
+Entering statement with args: (['the', 'mouse', 'hates', 'the', 'cat'],), kwargs: {}
+Entering action with args: (['the', 'mouse', 'hates', 'the', 'cat'], 0, 5), kwargs: {}
+Entering active_list with args: (['the', 'mouse', 'hates', 'the', 'cat'], 0, 5), kwargs: {}
+Entering actor with args: (['the', 'mouse', 'hates', 'the', 'cat'], 0, 5), kwargs: {}
+Exiting actor with result: 2
+Exiting active_list with result: 2
+Entering verb with args: (['the', 'mouse', 'hates', 'the', 'cat'], 2, 5), kwargs: {}
+Exiting verb with result: 3
+Entering active_list with args: (['the', 'mouse', 'hates', 'the', 'cat'], 3, 5), kwargs: {}
+Entering actor with args: (['the', 'mouse', 'hates', 'the', 'cat'], 3, 5), kwargs: {}
+Exiting actor with result: 5
+Exiting active_list with result: 5
+Exiting action with result: 5
+Exiting statement with result: 1
+Exiting statement with result: 1
+Exiting statement with result: 1
 YES I WILL
+Entering statement with args: (['goofy', 'hates', 'cats'],), kwargs: {}
+Entering action with args: (['goofy', 'hates', 'cats'], 0, 3), kwargs: {}
+Entering active_list with args: (['goofy', 'hates', 'cats'], 0, 3), kwargs: {}
+Entering actor with args: (['goofy', 'hates', 'cats'], 0, 3), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['goofy', 'hates', 'cats'], 1, 3), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['goofy', 'hates', 'cats'], 2, 3), kwargs: {}
+Entering actor with args: (['goofy', 'hates', 'cats'], 2, 3), kwargs: {}
+Exiting actor with result: -1
+Exiting active_list with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['a', 'goofy', 'loves', 'a', 'jimmy'],), kwargs: {}
+Entering action with args: (['a', 'goofy', 'loves', 'a', 'jimmy'], 0, 5), kwargs: {}
+Entering active_list with args: (['a', 'goofy', 'loves', 'a', 'jimmy'], 0, 5), kwargs: {}
+Entering actor with args: (['a', 'goofy', 'loves', 'a', 'jimmy'], 0, 5), kwargs: {}
+Exiting actor with result: 2
+Exiting active_list with result: 2
+Entering verb with args: (['a', 'goofy', 'loves', 'a', 'jimmy'], 2, 5), kwargs: {}
+Exiting verb with result: 3
+Entering active_list with args: (['a', 'goofy', 'loves', 'a', 'jimmy'], 3, 5), kwargs: {}
+Entering actor with args: (['a', 'goofy', 'loves', 'a', 'jimmy'], 3, 5), kwargs: {}
+Exiting actor with result: 5
+Exiting active_list with result: 5
+Exiting action with result: 5
+Exiting statement with result: 1
 YES I WILL
+Entering statement with args: (['a', 'goofy', 'loves', 'a', 'jimmy', 'and', 'the', 'cat', ',', 'mouse', 'hates', 'cat'],), kwargs: {}
+Entering action with args: (['a', 'goofy', 'loves', 'a', 'jimmy', 'and', 'the', 'cat', ',', 'mouse', 'hates', 'cat'], 0, 12), kwargs: {}
+Entering active_list with args: (['a', 'goofy', 'loves', 'a', 'jimmy', 'and', 'the', 'cat', ',', 'mouse', 'hates', 'cat'], 0, 12), kwargs: {}
+Entering actor with args: (['a', 'goofy', 'loves', 'a', 'jimmy', 'and', 'the', 'cat', ',', 'mouse', 'hates', 'cat'], 0, 12), kwargs: {}
+Exiting actor with result: 2
+Exiting active_list with result: 2
+Entering verb with args: (['a', 'goofy', 'loves', 'a', 'jimmy', 'and', 'the', 'cat', ',', 'mouse', 'hates', 'cat'], 2, 12), kwargs: {}
+Exiting verb with result: 3
+Entering active_list with args: (['a', 'goofy', 'loves', 'a', 'jimmy', 'and', 'the', 'cat', ',', 'mouse', 'hates', 'cat'], 3, 12), kwargs: {}
+Entering actor with args: (['a', 'goofy', 'loves', 'a', 'jimmy', 'and', 'the', 'cat', ',', 'mouse', 'hates', 'cat'], 3, 12), kwargs: {}
+Exiting actor with result: 5
+Entering actor with args: (['a', 'goofy', 'loves', 'a', 'jimmy', 'and', 'the', 'cat', ',', 'mouse', 'hates', 'cat'], 6, 12), kwargs: {}
+Exiting actor with result: 8
+Exiting active_list with result: 8
+Exiting action with result: 8
+Entering statement with args: (['mouse', 'hates', 'cat'],), kwargs: {}
+Entering action with args: (['mouse', 'hates', 'cat'], 0, 3), kwargs: {}
+Entering active_list with args: (['mouse', 'hates', 'cat'], 0, 3), kwargs: {}
+Entering actor with args: (['mouse', 'hates', 'cat'], 0, 3), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['mouse', 'hates', 'cat'], 1, 3), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['mouse', 'hates', 'cat'], 2, 3), kwargs: {}
+Entering actor with args: (['mouse', 'hates', 'cat'], 2, 3), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Exiting statement with result: 1
+Exiting statement with result: 1
 YES I WILL
+Entering statement with args: (['a', 'goofy', 'loves', 'the', 'a', 'jimmy'],), kwargs: {}
+Entering action with args: (['a', 'goofy', 'loves', 'the', 'a', 'jimmy'], 0, 6), kwargs: {}
+Entering active_list with args: (['a', 'goofy', 'loves', 'the', 'a', 'jimmy'], 0, 6), kwargs: {}
+Entering actor with args: (['a', 'goofy', 'loves', 'the', 'a', 'jimmy'], 0, 6), kwargs: {}
+Exiting actor with result: 2
+Exiting active_list with result: 2
+Entering verb with args: (['a', 'goofy', 'loves', 'the', 'a', 'jimmy'], 2, 6), kwargs: {}
+Exiting verb with result: 3
+Entering active_list with args: (['a', 'goofy', 'loves', 'the', 'a', 'jimmy'], 3, 6), kwargs: {}
+Entering actor with args: (['a', 'goofy', 'loves', 'the', 'a', 'jimmy'], 3, 6), kwargs: {}
+Exiting actor with result: -1
+Exiting active_list with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'hatessssssssssssss', 'jerry'],), kwargs: {}
+Entering action with args: (['tom', 'hatessssssssssssss', 'jerry'], 0, 3), kwargs: {}
+Entering active_list with args: (['tom', 'hatessssssssssssss', 'jerry'], 0, 3), kwargs: {}
+Entering actor with args: (['tom', 'hatessssssssssssss', 'jerry'], 0, 3), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hatessssssssssssss', 'jerry'], 1, 3), kwargs: {}
+Exiting verb with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'hatessssssssssssss', 'jerry', ','],), kwargs: {}
+Entering action with args: (['tom', 'hatessssssssssssss', 'jerry', ','], 0, 4), kwargs: {}
+Entering active_list with args: (['tom', 'hatessssssssssssss', 'jerry', ','], 0, 4), kwargs: {}
+Entering actor with args: (['tom', 'hatessssssssssssss', 'jerry', ','], 0, 4), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hatessssssssssssss', 'jerry', ','], 1, 4), kwargs: {}
+Exiting verb with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'hatessssssssssssss', 'jerry', ',', ',', 'tom', 'hatessssssssssssss', 'jerry'],), kwargs: {}
+Entering action with args: (['tom', 'hatessssssssssssss', 'jerry', ',', ',', 'tom', 'hatessssssssssssss', 'jerry'], 0, 8), kwargs: {}
+Entering active_list with args: (['tom', 'hatessssssssssssss', 'jerry', ',', ',', 'tom', 'hatessssssssssssss', 'jerry'], 0, 8), kwargs: {}
+Entering actor with args: (['tom', 'hatessssssssssssss', 'jerry', ',', ',', 'tom', 'hatessssssssssssss', 'jerry'], 0, 8), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hatessssssssssssss', 'jerry', ',', ',', 'tom', 'hatessssssssssssss', 'jerry'], 1, 8), kwargs: {}
+Exiting verb with result: -1
+Exiting action with result: -1
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: ([],), kwargs: {}
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'hates', 'jerry', 'jerry', 'hates', 'tom'],), kwargs: {}
+Entering action with args: (['tom', 'hates', 'jerry', 'jerry', 'hates', 'tom'], 0, 6), kwargs: {}
+Entering active_list with args: (['tom', 'hates', 'jerry', 'jerry', 'hates', 'tom'], 0, 6), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', 'jerry', 'hates', 'tom'], 0, 6), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hates', 'jerry', 'jerry', 'hates', 'tom'], 1, 6), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['tom', 'hates', 'jerry', 'jerry', 'hates', 'tom'], 2, 6), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', 'jerry', 'hates', 'tom'], 2, 6), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Exiting statement with result: 0
 NO I WON'T
+Entering statement with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'],), kwargs: {}
+Entering action with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 0, 11), kwargs: {}
+Entering active_list with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 0, 11), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 0, 11), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 1, 11), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 2, 11), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 2, 11), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Entering statement with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'],), kwargs: {}
+Entering action with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 0, 7), kwargs: {}
+Entering active_list with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 0, 7), kwargs: {}
+Entering actor with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 0, 7), kwargs: {}
+Exiting actor with result: 1
+Entering actor with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 2, 7), kwargs: {}
+Exiting actor with result: 3
+Entering actor with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 4, 7), kwargs: {}
+Exiting actor with result: 5
+Exiting active_list with result: 5
+Entering verb with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 5, 7), kwargs: {}
+Exiting verb with result: 6
+Entering active_list with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 6, 7), kwargs: {}
+Entering actor with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'like', 'jimmy'], 6, 7), kwargs: {}
+Exiting actor with result: 7
+Exiting active_list with result: 7
+Exiting action with result: 7
+Exiting statement with result: 1
+Exiting statement with result: 1
 YES I WILL
+Entering statement with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'],), kwargs: {}
+Entering action with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 0, 11), kwargs: {}
+Entering active_list with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 0, 11), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 0, 11), kwargs: {}
+Exiting actor with result: 1
+Exiting active_list with result: 1
+Entering verb with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 1, 11), kwargs: {}
+Exiting verb with result: 2
+Entering active_list with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 2, 11), kwargs: {}
+Entering actor with args: (['tom', 'hates', 'jerry', ',', 'tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 2, 11), kwargs: {}
+Exiting actor with result: 3
+Exiting active_list with result: 3
+Exiting action with result: 3
+Entering statement with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'],), kwargs: {}
+Entering action with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 0, 7), kwargs: {}
+Entering active_list with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 0, 7), kwargs: {}
+Entering actor with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 0, 7), kwargs: {}
+Exiting actor with result: 1
+Entering actor with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 2, 7), kwargs: {}
+Exiting actor with result: 3
+Entering actor with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 4, 7), kwargs: {}
+Exiting actor with result: 5
+Exiting active_list with result: 5
+Entering verb with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 5, 7), kwargs: {}
+Exiting verb with result: 6
+Entering active_list with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 6, 7), kwargs: {}
+Entering actor with args: (['tom', 'and', 'jerry', 'and', 'goofy', 'hate', 'jimmy'], 6, 7), kwargs: {}
+Exiting actor with result: 7
+Exiting active_list with result: 7
+Exiting action with result: 7
+Exiting statement with result: 1
+Exiting statement with result: 1
 YES I WILL

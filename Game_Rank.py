@@ -10,6 +10,8 @@
 # If player on rank 1-20 lose a game, they lose 1 star
 # Legend will always be legend.
 
+# python Game_Rank.py < game_rank_in.txt > game_rank_out.txt
+
 class Player:
     def __init__(self):
         self.rank = 25
@@ -28,36 +30,38 @@ class Player:
             return 5
         else:
             return 0
-    def promote(self):
-        self.rank -= 1
-        self.star = 0
-    def demote(self):
-        self.rank += 1
-        self.star = self.returnstar() - 1
     def win(self):
         self.consec+=1
-        for _ in range(2 if self.consec>=3 and 6<=self.rank<=25 else 1):
-            self.star += 1
-            if self.star>=self.returnstar():
-                self.promote()
+        self.star += 2 if (self.consec>=3 and 6<=self.rank<=25) else 1
+        if self.star>self.returnstar() and self.rank>0:
+            self.star = self.star-self.returnstar()
+            self.rank-=1
     def lose(self):
         self.consec = 0
-        if 20<self.rank or self.rank==0:
-            pass
+        if self.star <= 0 and self.rank>0 and self.rank<20:
+            self.rank += 1
+            self.star = self.returnstar() - 1
         else:
-            if self.star == 0:
-                self.demote()
-            else:
-                self.star -= 1
+            self.star -= 0 if (self.rank>20 or self.rank==0 or (self.rank==20 and self.star==0)) else 1
     def calculate_rank(self,state):
         if state=='W':
             self.win()
-        else:
+        elif state=='L':
             self.lose()
+        else:
+            pass
 
+# while True:
+#     try:
+#         my_Player = Player()
+#         for c in input():
+#             my_Player.calculate_rank(c)
+#             print(c,my_Player.__repr__())
+#         print('Legend'if my_Player.rank==0 else my_Player.rank)
+#     except EOFError:break
 
 my_Player = Player()
 for c in input():
     my_Player.calculate_rank(c)
-    print(c,my_Player.__repr__())
+    # print(c,my_Player.__repr__())
 print('Legend'if my_Player.rank==0 else my_Player.rank)
