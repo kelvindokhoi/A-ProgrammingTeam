@@ -1,7 +1,9 @@
 # 10058 - Jimmi's Riddles
 
-# python UVA_Problems/10058-Jimmis_Riddles_Debug.py < UVA_Problems/10058-Jimmis_Riddles_in.txt
-# python 10058-Jimmis_Riddles_Debug.py < 10058-Jimmis_Riddles_in.txt
+# python UVA_Problems/10058-Jimmis_Riddles.py < UVA_Problems/10058-Jimmis_Riddles_in.txt
+# python 10058-Jimmis_Riddles.py < 10058-Jimmis_Riddles_in.txt
+# python UVA_Problems/10058-Jimmis_Riddles.py < UVA_Problems/10058-Jimmis_Riddles_in.txt > UVA_Problems/10058-Jimmis_Riddles_out.txt
+
 # python A.FORTESTONLY.py < UVA_Problems/10058-Jimmis_Riddles_in.txt > UVA_Problems/10058-Jimmis_Riddles_out.txt  
 
 # def debug_wrapper(func):
