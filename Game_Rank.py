@@ -38,11 +38,14 @@ class Player:
             self.rank-=1
     def lose(self):
         self.consec = 0
-        if self.star <= 0 and self.rank>0 and self.rank<20:
-            self.rank += 1
-            self.star = self.returnstar() - 1
-        else:
-            self.star -= 0 if (self.rank>20 or self.rank==0 or (self.rank==20 and self.star==0)) else 1
+        if 1<=self.rank<=20:
+            if self.rank==20 and self.star==0:
+                pass
+            elif self.star==0:
+                self.rank += 1
+                self.star = self.returnstar()-1
+            else:
+                self.star-=1
     def calculate_rank(self,state):
         if state=='W':
             self.win()

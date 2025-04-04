@@ -16,5 +16,9 @@ def kmp(t,p):
 
 for _ in range(1,int(input())+1):
     b1 = input()
-    b2 = input()*2
+    b2 = input()
+    if len(b1)!=len(b2):
+        print(f"Case #{_}:",'NO')
+        continue
+    b2 = b2*2
     print(f"Case #{_}: {'YES'if kmp(b2,b1)!=[] or kmp(b2,b1[::-1])!=[] else 'NO'}")
