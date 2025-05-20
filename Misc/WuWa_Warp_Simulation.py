@@ -164,3 +164,17 @@ def n_tries(n_sims=10000, target_copies=7, featured_5_star='Zani', featured_4_st
 
 if __name__ == "__main__":
     n_tries(featured_5_star='Jiyan', featured_4_stars=['Chixia', 'Sanhua', 'Danjin'])
+
+
+# Average pulls for 7 Jiyan: 430.30, requires 68847.81 Astrites
+# Average pulls per 5-star (simulated): 54.30
+# Average pulls per Jiyan from pulls (simulated): 82.03
+# Average redemptions per simulation: 1.75
+# Average copies of Jiyan per simulation: 7.00
+# Average total 5-star copies per simulation: 9.68
+# Featured 4-stars: ['Chixia', 'Sanhua', 'Danjin']
+# Expected pulls per 5-star (empirical): 53.44
+# Expected pulls per featured 5-star (empirical): 79.75
+
+#FOR 95% rate: save 554 pull, then buy 2 cons
+#430 pulls: 60.28% chance
