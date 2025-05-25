@@ -1,5 +1,9 @@
 from random import random, choices
 
+#Initial Variables
+initial_5_star_pity = 55
+initial_4_star_pity = 3
+
 # Game constants
 pull_price = 160
 five_star_base_rate = 0.008
@@ -40,8 +44,8 @@ class Calculator:
         if not all(f in all_4_star for f in featured_4_stars):
             raise ValueError("All featured_4_stars must be valid 4-star characters/weapons")
         
-        self.pity5 = 0
-        self.pity4 = 0
+        self.pity5 = initial_5_star_pity
+        self.pity4 = initial_4_star_pity
         self.last_4_star_non_featured = False
         self.reward = 0
         # 5-star weapon setup
