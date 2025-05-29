@@ -52,11 +52,12 @@ for case_nth in range(test_cases):
         print('player two wins')
 
 # Golfed Ver.:
-# def G(h):return{(x,h-1-y)for y in range(h)for x,c in enumerate(input())if c=='#'}
-# for _ in[0]*int(input()):
-#  w,h,s=map(int,input().split());S=[G(h),G(h)];t=d=0
+# i=input
+# def G(h):return{(x,h-1-y)for y in range(h)for x,c in enumerate(i())if c=='#'}
+# for _ in[0]*int(i()):
+#  w,h,s=map(int,i().split());S=[G(h),G(h)];t=d=0
 #  for _ in[0]*s:
-#   x,y=map(int,input().split())
+#   x,y=map(int,i().split())
 #   if d:continue
 #   if(x,y)in S[~t]:S[~t].discard((x,y));d=not S[~t]and t;t|=not S[~t]
 #   elif t and not S[t]:d=1

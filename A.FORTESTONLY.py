@@ -1,10 +1,11 @@
-def G(h):return{(x,h-1-y)for y in range(h)for x,c in enumerate(input())if c=='#'}
-for _ in[0]*int(input()):
- w,h,s=map(int,input().split());S=[G(h),G(h)];t=d=0
- for _ in[0]*s:
-  x,y=map(int,input().split())
-  if d:continue
-  if(x,y)in S[~t]:S[~t].discard((x,y));d=not S[~t]and t;t|=not S[~t]
-  elif t and not S[t]:d=1
-  else:t=~t
- print('draw'if all(S)or not any(S)else f"player %s wins"%('one'if S[0]else'two'))
+c=[9,4,4,4,7];F=C=0;import sys
+for l in sys.stdin:
+ if l[0]!="-":
+  s=l.split();t=p=0
+  for i,x in enumerate(s):
+   n,u=int(x[:-1]),x[-1]
+   if u=="%":p+=n/100
+   else:t+=(n:=[n*c[i],n][u=='C'])
+   if i==0:f,s=n,u
+  t/=1-p;F+=f*[1,t/100][s=='%'];C+=t
+ elif C:print(f"{F/C*100:.0f}%");F=C=0

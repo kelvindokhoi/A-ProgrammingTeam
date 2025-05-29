@@ -2,12 +2,13 @@ from random import random, choices
 import math
 
 # Input variables
-astrites = 0
-radiant_tides = 430
-afterglow_coral = 0
+astrites = 39103
+radiant_tides = 57
+afterglow_coral = 161
 featured_5_star = 'Camellya'
 featured_4_stars = ['Chixia', 'Sanhua', 'Danjin']
 n_sims=10000
+initial_5_star_pity = 48
 
 # Game constants
 pull_price = 160
@@ -55,7 +56,7 @@ class Calculator:
         if not all(f in all_4_star for f in featured_4_stars):
             raise ValueError("All featured_4_stars must be valid 4-star characters/weapons")
         
-        self.pity5 = 0
+        self.pity5 = initial_5_star_pity
         self.last_5_star_non_featured = False
         self.pity4 = 0
         self.last_4_star_non_featured = False
