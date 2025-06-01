@@ -62,3 +62,22 @@ while True:
         print(f'{b} divides {a}!'if check_divisible(a,b) else f'{b} does not divide {a}!')
     except EOFError:
         break
+
+# n=46340;k=[1]*n
+# for i in range(2,215):
+#  if k[i]:k[i*i:n:i]=[0]*-(-n//i+i)
+# P=[i for i in range(2,n)if k[i]]
+# def L(n,f,s=0,c=1):
+#  while n>=(c:=c*f):s+=n//c
+#  return s
+# def D(a,b):
+#  if b<1:return 0
+#  for p in P:
+#   if p*p>b:break
+#   if b%p<1:
+#    c=0
+#    while b%p<1:c+=1;b//=p
+#    if c>L(a,p):return 0
+#  return b<2 or b<=a and 0<L(a,b)
+# for l in open(0):
+#  a,b=map(int,l.split());print(b,f'{"divides"if D(a,b)else"does not divide"} {a}!')
