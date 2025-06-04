@@ -2,7 +2,7 @@ from random import random, choices
 import math
 
 # Input variables
-astrites = 39103
+astrites = 42100
 radiant_tides = 57
 afterglow_coral = 161
 featured_5_star = 'Camellya'
