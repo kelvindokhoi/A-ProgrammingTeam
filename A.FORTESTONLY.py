@@ -1,14 +1,10 @@
-if 1!=1:
-    print('1 khac 1')
-elif 2!=2:
-    print('2 khac 2')
-else:
-    print('_____')
+from decimal import*
 
-if 1!=1:
-    print('1 khac 1')
-else:
-    if 2!=2:
-        print('2 khac 2')
-    else:
-        print('_______________')
+for _ in[0]*int(input()):
+    r,b,m= map(Decimal,input().split())
+    r /= 100
+    if (b*r).quantize(Decimal('0.01'),rounding=ROUND_HALF_UP)-m>=0:print('impossible');continue
+    for i in range(1200):
+        b += (b*r).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP) - m
+        if b<=0:break
+    print(i+1 if b<=0 else'impossible')
