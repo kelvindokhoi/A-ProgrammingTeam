@@ -1,70 +1,32 @@
-import sys
-from collections import defaultdict, deque
+# A Naive recursive implementation of LCS problem
 
-class TrieNode:
-    def __init__(self):
-        self.children = {}
-        self.is_end = False
+# Returns length of LCS for s1[0..m-1], s2[0..n-1]
+def lcsRec(s1, s2, m, n):
+  
+    # Base case: If either string is empty, the length of LCS is 0
+    if m == 0 or n == 0:
+        return 0
 
-n = int(input())
-strings = [input().strip() for _ in ' '*n]
+    # If the last characters of both substrings match
+    if s1[m - 1] == s2[n - 1]:
 
-# Step 1: TRIE for FULL prefix check
-root = TrieNode()
-impossible = False
-for s in strings:
-    node = root
-    for c in s:
-        # Shorter earlier: OK
-        if node.is_end:
-            pass
-        if c not in node.children:
-            node.children[c] = TrieNode()
-        node = node.children[c]
-    # Longer earlier? IMPOSSIBLE!
-    if node.children:
-        impossible = True
-        break
-    node.is_end = True
+        # Include this character in LCS and recur for remaining substrings
+        return 1 + lcsRec(s1, s2, m - 1, n - 1)
 
-if impossible:
-    print('impossible')
-else:
-    # Step 2: Build graph from CONSECUTIVE pairs ONLY
-    graph = defaultdict(list)
-    indeg = {chr(ord('a') + i): 0 for i in range(26)}
-    for i in range(n - 1):
-        s1, s2 = strings[i], strings[i + 1]
-        minl = min(len(s1), len(s2))
-        found_diff = False
-        for j in range(minl):
-            if s1[j] != s2[j]:
-                u, v = s1[j], s2[j]
-                if v not in graph[u]:
-                    graph[u].append(v)
-                    indeg[v] += 1
-                found_diff = True
-                break
-        if not found_diff:
-            # Prefix case (redundant, trie caught)
-            if len(s1) > len(s2):
-                impossible = True
-                break
-
-    if impossible:
-        print('impossible')
     else:
-        # Step 3: Kahn's Topo Sort
-        q = deque(c for c in indeg if indeg[c] == 0)
-        order = []
-        while q:
-            u = q.popleft()
-            order.append(u)
-            for v in graph[u]:
-                indeg[v] -= 1
-                if indeg[v] == 0:
-                    q.append(v)
-        if len(order) == 26:
-            print(''.join(order))
-        else:
-            print('impossible')
+        # If the last characters do not match
+        # Recur for two cases:
+        # 1. Exclude the last character of S1 
+        # 2. Exclude the last character of S2 
+        # Take the maximum of these two recursive calls
+        return max(lcsRec(s1, s2, m, n - 1), lcsRec(s1, s2, m - 1, n))
+
+def lcs(s1,s2):
+    m = len(s1)
+    n = len(s2)
+    return lcsRec(s1,s2,m,n)
+
+if __name__ == "__main__":
+    s1 = "AGGTAB"
+    s2 = "GXTXAYB"
+    print(lcs(s1, s2))

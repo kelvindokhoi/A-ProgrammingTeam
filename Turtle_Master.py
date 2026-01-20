@@ -87,4 +87,4 @@ for move in command:
 if Diamond_Loc is None:
     print('Bug!')
     exit()
-print('Diamond!'if (turtle_x,turtle_y) == Diamond_Loc else 'Bug!')
+print('Diamond!'if (turtle_x,turtle_y) == Diamond_Loc else 'Bug!')  
