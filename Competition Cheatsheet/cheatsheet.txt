@@ -1,0 +1,1118 @@
+Current computational power:
+10^8 ops/sec.
+If possible:
+Generate all possible answers (unless there is a ‘source code size limit’) in the background and let other people use the computer.
+RTE (Runtime Error): usually array sizes that are too small or stack overflow /infinite recursion errors.
+Types of Error in Python:
+EOFError
+IndexError
+SyntaxError
+KeyError (access a key not in the dictionary)
+Tips:
+Try not to use math.dist() to calculate the distance in Kattis.
+Compare File:
+python .\marbletree.py < .\marbles_In.txt > out_temp99.txt && fc out_temp99.txt marbles_out.txt
+Print the TILDE ~ (for golfing):
+~x = - x - 1
+-~x = x + 1
+~-x = x -1
+print("\u007E")
+Finding if a number is odd in golfing:
+if a&1:
+    print(f'{a} is odd')
+Read all input at once (for golfing):
+a,b,*c=map(int,open(0).read().split())
+a=[*open(0)] or a=open(0).read().split()
+Use Sum() to flatten a list: as in this example:
+from collections import*;print(*sum(([x]*y for x,y in sorted(Counter(open(0).read().split()[2:]).items(),key=lambda x:-x[1])),[]))
+(and Counter can be sorted, it uses a different type of dictionary called defaultdict in collections)
+Use random with weight:
+import random
+sampleList = [100, 200, 300, 400, 500]
+randomList = random.choices(
+  sampleList, weights=(10, 20, 30, 40, 50), k=5)
+print(randomList)
+Turning mXn matrix to mXn matrix:
+A = [(1,2,3),(4,5,6)]# list A = 2 tuples of 3
+A = [*zip(*A)]# [(1,4),(2,5),(3,6)]
+Use deque:
+from collections import deque
+my_deque = deque()  # Empty deque
+my_deque = deque([1, 2, 3])  # Deque initialized with values
+Find All Matching Patterns:
+
+from re import finditer
+n="kakakawww"
+print([a.start() for a in finditer("k",n)])
+Fast Powering Algorithm:
+def fast(b,p):
+    res=1
+    while p:
+        if p&1:res*=b
+        b*=b
+        p>>=1
+    return res
+Find the primes:
+#Sieve of Eratosthenes
+from math import sqrt
+def prime(n):
+    k=[True]*(n-2)
+    for i in range(2,int(sqrt(n))+1):
+        if k[i-2]==True:
+            j=i*i
+            while j<n:
+                k[j-2]=False
+                j+=i
+    return [i+2 for i in range(n-2) if k[i]==True]
+1.3.4.1-Task5:
+# print the day of the week of a given date and calculate the time passed
+from datetime import date
+def sortbirth(birthdates):
+    today = date.today()
+    def sortpara(indiv):
+        day, month, year = map(int,indiv.split())
+        obj_date = date(year,month,day)
+        age = today.year - obj_date.year - ((today.month,today.day)<(obj_date.month,obj_date.day))
+        return obj_date.month, obj_date.day, age
+   
+    return sorted(birthdates,key=sortpara)
+data = ["10 8 2010","9 8 2009","3 1 2020"]
+print(sortbirth(data))
+Print out day, month, year:
+# 13025 - Back to the Past
+from datetime import date
+data = date(2013,5,29)
+print(data.strftime("%B %d, %Y ") + data.strftime('%A'))
+Output:
+May 29, 2013 Wednesday
+strftime(format): This method formats the date into a string according to the specified format codes. Some common format codes are:
+%Y: 4-digit year
+%m: 2-digit month (01-12)
+%d: 2-digit day (01-31)
+%B: Full month name (e.g., January, February)
+%b: Abbreviated month name (e.g., Jan, Feb)
+%A: Full weekday name (e.g., Monday, Tuesday)
+%a: Abbreviated weekday name (e.g., Mon, Tue)
+Find week number:
+
+from datetime import date
+my_date = date(2006, 3, 15)
+# Get the ISO year, week number, and weekday as a tuple
+iso_calendar = my_date.isocalendar()
+print(iso_calendar)  # Output: (2006, 11, 3)
+# Extract the week number
+week_number = iso_calendar[1]
+print(f"The week number for {my_date} is: {week_number}")  # Output: The week number for 2006-03-15 is: 11
+KMP All Pattern/Text Finding Algorithm - O(m+n):
+t: text, p: pattern, r: all instances
+
+def kmp(t,p):
+    n,m=len(t),len(p);l=[0]*m;j=0
+    if m<1:return[0]*(n>-1)
+    if n<1:return[]
+    for i in range(1,m):
+        while j and p[i]!=p[j]:j=l[j-1]
+        j+=p[i]==p[j];l[i]=j
+    i=j=0;r=[]
+    while i<n:
+        while i<n and j<m and t[i]==p[j]:i,j=i+1,j+1
+        if j==m:r+=[i-j];j=l[j-1]
+        elif j:j=l[j-1]
+        else:i+=1
+    return r
+# Creating Regex Patterns: A Complete Guide
+Regular expressions (regex) are powerful tools for pattern matching and text manipulation. This guide covers everything you should know when creating regex patterns, with a focus on Python's implementation.
+## 1. Basic Syntax Elements
+### Literal Characters
+- Regular characters match themselves: `a` matches the letter "a"
+- To match special characters like `.`, `*`, `?`, use a backslash to escape them: `\.`, `\*`, `\?`
+### Metacharacters
+These characters have special meanings in regex:
+- `.` - Matches any single character except newline
+- `^` - Matches start of string (or line with multiline mode)
+- `$` - Matches end of string (or line with multiline mode)
+- `*` - Matches 0 or more repetitions
+- `+` - Matches 1 or more repetitions
+- `?` - Matches 0 or 1 repetition
+- `|` - Acts as an OR operator (alternation)
+- `\` - Escapes special characters
+- `[]` - Defines a character class
+- `()` - Creates a capturing group
+## 2. Character Classes
+### Basic Character Classes
+- `[abc]` - Matches any character in the set (a, b, or c)
+- `[^abc]` - Matches any character NOT in the set
+- `[a-z]` - Matches any character in the range (a through z)
+- `[A-Z0-9]` - Matches uppercase letters and digits
+### Shorthand Character Classes
+- `\d` - Matches any digit (`[0-9]`)
+- `\D` - Matches any non-digit (`[^0-9]`)
+- `\w` - Matches any word character (`[a-zA-Z0-9_]`)
+- `\W` - Matches any non-word character
+- `\s` - Matches any whitespace (space, tab, newline)
+- `\S` - Matches any non-whitespace character
+- `\b` - Matches a word boundary
+- `\B` - Matches a non-word boundary
+## 3. Quantifiers
+### Basic Quantifiers
+- `*` - 0 or more (greedy)
+- `+` - 1 or more (greedy)
+- `?` - 0 or 1 (greedy)
+- `{n}` - Exactly n times
+- `{n,}` - n or more times
+- `{n,m}` - Between n and m times
+### Lazy (Non-greedy) Quantifiers
+- `*?` - 0 or more (non-greedy)
+- `+?` - 1 or more (non-greedy)
+- `??` - 0 or 1 (non-greedy)
+- `{n,}?` - n or more times (non-greedy)
+- `{n,m}?` - Between n and m times (non-greedy)
+## 4. Anchors and Boundaries
+- `^` - Start of string/line
+- `$` - End of string/line
+- `\b` - Word boundary
+- `\B` - Not a word boundary
+- `\A` - Start of string (never matches at line breaks)
+- `\Z` - End of string or before newline at the end
+- `\z` - End of string
+## 5. Groups and References
+### Capturing Groups
+- `(pattern)` - Captures the matched pattern in a group
+- `(?:pattern)` - Non-capturing group
+### Backreferences
+- `\1`, `\2`, etc. - Refer to previously captured groups
+- Example: `(\w+) \1` matches repeated words like "hello hello"
+## 6. Lookaround Assertions
+### Lookahead
+- `(?=pattern)` - Positive lookahead: matches if pattern follows
+- `(?!pattern)` - Negative lookahead: matches if pattern doesn't follow
+### Lookbehind
+- `(?<=pattern)` - Positive lookbehind: matches if pattern precedes
+- `(?<!pattern)` - Negative lookbehind: matches if pattern doesn't precede
+## 7. Alternation
+- `pattern1|pattern2` - Matches either pattern1 or pattern2
+- Example: `cat|dog` matches either "cat" or "dog"
+- Use groups for complex alternations: `I love (cats|dogs)`
+## 8. Flags/Modifiers
+In Python's `re` module:
+- `re.IGNORECASE` or `re.I`: Case-insensitive matching
+- `re.MULTILINE` or `re.M`: `^` and `$` match start/end of each line
+- `re.DOTALL` or `re.S`: `.` matches any character including newline
+- `re.VERBOSE` or `re.X`: Allows comments and whitespace in pattern
+- `re.ASCII` or `re.A`: Makes `\w`, `\b`, `\s`, etc. match only ASCII characters
+## 9. Common Patterns
+### Email validation
+```python
+r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+```
+### URL matching
+```python
+r"https?://(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b(?:[-a-zA-Z0-9@:%_\+.~#?&//=]*)"
+```
+### Phone numbers (US)
+```python
+r"\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}"
+```
+### Date (YYYY-MM-DD)
+```python
+r"\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])"
+```
+## 10. Best Practices
+1. **Start simple and iterate**:
+   - Begin with basic patterns and refine them
+   - Test frequently with different inputs
+2. **Readability matters**:
+   - Use Python's verbose mode (`re.VERBOSE`) for complex patterns
+   - Add comments to explain parts of complex patterns
+   ```python
+   pattern = re.compile(r"""
+       \d{3}    # Area code
+       [-.\s]?  # Optional separator
+       \d{3}    # First 3 digits
+       [-.\s]?  # Optional separator
+       \d{4}    # Last 4 digits
+   """, re.VERBOSE)
+   ```
+re.compile to save the time recompiling the pattern every time.
+3. **Be specific**:
+   - Avoid using `.+` or `.*` when more specific patterns can work
+   - Use character classes to limit what can match
+4. **Consider performance**:
+   - Avoid excessive backtracking with catastrophic backtracking patterns
+   - Limit use of lookarounds for complex patterns
+   - Use non-capturing groups `(?:...)` when you don't need the match
+5. **Security considerations**:
+   - Don't use regex for parsing HTML/XML (use proper parsers)
+   - Be cautious with user-provided regex patterns
+## 11. Python-Specific Tips
+### Handling raw strings
+- Always use raw strings (`r"pattern"`) to avoid escape sequence confusion
+### Compiling for reuse
+```python
+pattern = re.compile(r"\d+")  # More efficient for repeated use
+matches = pattern.findall(text)
+```
+### Common functions
+- `re.search()`: Finds the first match
+- `re.match()`: Matches only at beginning of string
+- `re.findall()`: Returns all non-overlapping matches as a list
+- `re.sub()`: Substitutes matches with replacement text
+- re.fullmatch: matches the full paragraph instead of just 1 line.
+### Named groups
+```python
+pattern = r"(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})"
+match = re.search(pattern, "2023-05-15")
+if match:
+    print(match.group('year'))  # 2023 #for the year only
+print(match.group()) # for the literal match
+```
+## 12. Testing and Debugging Tools
+- [Regex101](https://regex101.com/): Interactive regex tester with explanation
+- [RegExr](https://regexr.com/): Visual regex testing with reference guide
+- [PyRegex](http://www.pyregex.com/): Python-specific regex testing
+## 13. Advanced Techniques
+### Conditional patterns
+```python
+r"(?:(condition)?(?(1)then-pattern|else-pattern))"
+```
+### Recursive patterns
+```python
+r"(?P<parentheses>\((?:[^()]|(?&parentheses))*\))"  # Matches nested parentheses
+```
+Remember: Regular expressions are powerful but can become complex quickly. When a pattern gets too complex, consider breaking the problem down into multiple steps or using parser libraries for structured formats.
+Frogger (Union-Find):
+
+from math import dist
+from collections import deque
+# Kruskal
+# DFS
+# DP
+class Union_Find():
+    def __init__(self,n):
+        self.parents = [*range(n)]
+        self.rank = [0]*n
+    def find(self,x):
+        if self.parents[x]!=x:
+            self.parents[x]=self.find(self.parents[x])
+        return self.parents[x]
+    def union(self,x,y):
+        dx,dy=self.find(x),self.find(y)
+        if dx==dy:
+            return False
+        if self.rank[dx]>self.rank[dy]:
+            self.parents[dy] = dx
+        elif self.rank[dx]<self.rank[dy]:
+            self.parents[dx] = dy
+        else:
+            self.parents[dx]=dy
+            self.rank[dy]+=1
+        return True
+counter = 1
+while True:
+    n=int(input())
+    if n==0:break
+    points = [[*map(int,input().split())]for _ in range(n)]
+    input()
+    edges = []
+    for i in range(n):
+        for j in range(i+1,n):
+            edges.append((dist(points[i],points[j]),i,j))
+    edges.sort()
+    uf = Union_Find(n)
+    MST_edges = []
+    for edge in edges:
+        d,x,y = edge
+        if uf.union(x,y):
+            MST_edges.append(edge)
+            if len(MST_edges)==n-1:
+                break
+    MST_adjacency_list = [[]for _ in range(n)]
+    for d,x,y in MST_edges:
+        MST_adjacency_list[x].append((d,y))
+        MST_adjacency_list[y].append((d,x))
+    maxjump = [-1]*n
+    maxjump[0] = 0
+    myq = deque([0])
+    while myq:
+        curr = myq.popleft()
+        for d,p in MST_adjacency_list[curr]:
+            if maxjump[p]==-1:
+                maxjump[p] = max(maxjump[curr],d)
+                myq.append(p)
+    print(f"Scenario #{counter}")
+    counter+=1
+    print(f"Frog Distance = {maxjump[1]:.3f}")
+    print()
+Fibonacci O(1) solution:
+Finding the lens(or intersection) between 2 circles:
+# Goats
+from math import sqrt, acos, pi
+def calc_middle(a,b,c,a2,b2,c2):return a2*acos((c2-b2+a2)/(2*c*a)) + b2*acos((c2-a2+b2)/(2*b*c)) - sqrt((c-a+b)*(c+a-b)*(a+b-c)*(c+a+b))/2
+def BinarySearch(tries,min_a,max_a,b,c):
+    a = (min_a+max_a)/2
+    a2 = a**2
+    b2 = b**2
+    c2 = c**2
+    lhs = pi*b2
+    for _ in' '*tries:
+        # too far no intersect
+        if c>=a+b:
+            rhs = pi*a2
+        # c2 inside c1
+        elif a-b>=c and a>=b:
+            rhs = pi*(a2-b2)
+        # c1 inside c2
+        elif b>=a+c and b>=a:
+            rhs = 0
+        else:
+            rhs = pi*a2-calc_middle(a,b,c,a2,b2,c2)
+        if abs(rhs-lhs)<1e-9:
+            return a
+        if rhs>lhs:
+            max_a = a
+        else:
+            min_a = a
+        a = (max_a+min_a)/2
+        a2 = a**2
+    return a
+for _ in' '*int(input()):
+    b,c = map(float,input().split())
+    a = BinarySearch(10000,0,2e9,b,c)
+    result = pi*a*a - (calc_middle(a,b,c,a*a,b*b,c*c) if c<a+b and abs(a-b)<c else (pi*b*b if a>=b and a-b>=c else 0))
+    print(f'{result} = {pi*b*b}, with a = {a}')
+Fun fact about the sum of factorial:
+Debug Wrapper:
+
+def debug_wrapper(func):
+    def wrapper(*args, **kwargs):
+        entry_color = "\033[94m"  # Blue color
+        exit_color = "\033[92m"   # Green color
+        reset_color = "\033[0m"   # Reset color
+        print(f"{entry_color}Entering {func.__name__} with args: {args}, kwargs: {kwargs}{reset_color}")
+        result = func(*args, **kwargs)
+        print(f"{exit_color}Exiting {func.__name__} with result: {result}{reset_color}")
+        return result
+    return wrapper
+@debug_wrapper
+or
+def debug_wrapper(func):
+    def wrapper(*args, **kwargs):
+        print(f"Entering {func.__name__} with args: {args}, kwargs: {kwargs}")
+        result = func(*args, **kwargs)
+        print(f"Exiting {func.__name__} with result: {result}")
+        return result
+    return wrapper
+To solve parsers: recursive descent parser
+Example:
+# 10058 - Jimmi's Riddles
+# python UVA_Problems/10058-Jimmis_Riddles.py < UVA_Problems/10058-Jimmis_Riddles_in.txt
+# python 10058-Jimmis_Riddles.py < 10058-Jimmis_Riddles_in.txt
+# python UVA_Problems/10058-Jimmis_Riddles.py < UVA_Problems/10058-Jimmis_Riddles_in.txt > UVA_Problems/10058-Jimmis_Riddles_out.txt
+# python A.FORTESTONLY.py < UVA_Problems/10058-Jimmis_Riddles_in.txt > UVA_Problems/10058-Jimmis_Riddles_out.txt  
+# def debug_wrapper(func):
+#     def wrapper(*args, **kwargs):
+#         print(f"Entering {func.__name__} with args: {args}, kwargs: {kwargs}")
+#         result = func(*args, **kwargs)
+#         print(f"Exiting {func.__name__} with result: {result}")
+#         return result
+#     return wrapper
+def debug_wrapper(func):
+    def wrapper(*args, **kwargs):
+        #print(f"Entering {func.__name__} with args: {args}, kwargs: {kwargs}")
+        result = func(*args, **kwargs)
+        #print(f"Exiting {func.__name__} with result: {result}")
+        return result
+    return wrapper
+@debug_wrapper
+def statement(string):
+    n = len(string)
+    i = 0
+    if string==[]:
+        return 0
+    next_index = action(string,i,n)
+    if next_index==-2 or next_index==n:
+        return 1
+    elif next_index==-1 :
+        return 0
+    elif next_index>i:
+        if next_index<n-1 and string[next_index]==',':
+            return statement(string[next_index+1:])
+        else:
+            return 0
+    return 0
+@debug_wrapper
+def action(string,i,n):
+    if i==n-1:
+        return -1
+    next_index = active_list(string,i,n)
+    if next_index==-2:
+        return -1
+    elif next_index==n-1:
+        return -1
+    if next_index>i:
+        i = next_index
+    else:return -1
+    next_index = verb(string,i,n)
+    if next_index==-2:
+        return -1
+    elif next_index==-1:
+        return -1
+    if next_index>i:
+        i = next_index
+    else:return -1
+    next_index = active_list(string,i,n)
+    if next_index==-2:
+        return -1
+    elif next_index==-1:
+        return -1
+    if next_index>i:
+        i = next_index
+    else:return -1
+    return i
+@debug_wrapper
+def active_list(string,i,n):
+    if i>n-1:
+        return -2
+    next_index = actor(string,i,n)
+    if next_index==-2:
+        return -2
+    elif next_index==-1:
+        return -1
+    if next_index>i:
+        i = next_index
+    else:return -1
+    while i<n and string[i]=='and':
+        i+=1
+        if i>=n:
+            return -1
+        next_index = actor(string,i,n)
+        if next_index==-2:
+            return -2
+        elif next_index==-1:
+            return -1
+        i = next_index
+    return i
+@debug_wrapper
+def actor(string,i,n):
+    nouns = ['tom','jerry','goofy','mickey','jimmy','dog','cat','mouse']
+    next_word = string[i]
+    if next_word in nouns:
+        return i+1
+    elif next_word in ['a','the']:
+        if i<n-1 and string[i+1] in nouns:
+            return i+2
+        else:
+            return -1
+    else:
+        return -1
+@debug_wrapper
+def verb(string,i,n):
+    verbs = ['hate','love','know','like','hates','loves','knows','likes']
+    if string[i] not in verbs:
+        return -1
+    return i+1
+# i=0
+while True:
+    try:
+        # i+=1
+        # print(f"Case {i}")
+        print(["NO I WON'T","YES I WILL"][statement(input().replace(',',' , ').split())])
+    except EOFError:
+        break
+Dijkstra Algorithm with Min-heap implementation:
+# Single source shortest path, non-negative weights
+import heapq
+while 1:
+    n,m,q,s = map(int,input().split())
+    if n==m==q==s==0:
+        break
+    graph = {k:set() for k in range(n)}
+    weightmap = {k:float('inf') for k in range(n)}
+    weightmap[s] = 0
+    myHeap = []
+    heapq.heapify(myHeap)
+    heapq.heappush(myHeap,(0,s))
+    for _ in range(m):
+        u,v,w = map(int,input().split())
+        graph[u].add((v,w))
+    while myHeap:
+        d,u = heapq.heappop(myHeap)
+        for v,w in graph[u]:
+            if w+d < weightmap[v]:
+                weightmap[v] = w+d
+                heapq.heappush(myHeap,(w+d,v))
+    for _ in range(q):
+        a = weightmap[int(input())]
+        print(a if a!=float('inf') else 'Impossible')
+The Closest Pair Problem:
+
+# 10245 - The Closest Pair Problem
+# python UVA_Problems/10245-The_Closest_PairProblem.py < UVA_Problems/10245-The_Closest_PairProblem_in.txt
+# python 10245-The_Closest_PairProblem.py < 10245-The_Closest_PairProblem_in.txt
+from math import dist
+while True:
+    n = int(input())
+    if n==0:exit()
+    coordinates = sorted([[*map(float,input().split())]for _ in' '*n])
+    if n==1:print('INFINITY');continue
+    d = dist(coordinates[0],coordinates[1])
+    if n==2:print('INFINITY' if d>=10000 else f'{d:.4f}');continue
+    for i in range(2,n):
+        p = i-1
+        new = coordinates[i]
+        while p>=0:
+            point = coordinates[p]
+            if abs(new[0]-point[0])<=d:
+                if abs(new[1]-point[1])<=2*d:
+                    d = min(d,dist(new,point))
+            else:break
+            p-=1
+    print('INFINITY' if d>=10000 else f'{d:.4f}')
+Finding divisibility using legendre’s formular:
+
+# Factovisors
+# python Factovisors.py < Factovisors_in.txt
+#Sieve of Eratosthenes
+from math import sqrt
+from bisect import bisect_right
+def prime(n):
+    k=[True]*(n-2)
+    for i in range(2,int(sqrt(n))+1):
+        if k[i-2]==True:
+            j=i*i
+            while j<n:
+                k[j-2]=False
+                j+=i
+    return [i+2 for i in range(n-2) if k[i]==True]
+list_of_all_prime = prime(46340) #cuz m,n can get to 2^31
+# Legendre's Formular (for finding the number of k factor)
+def legendre(num,factor):
+    s=0
+    curr = factor
+    while num>=curr:
+        s+=num//curr
+        curr*=factor
+    return s
+def check_divisible(a,b):
+    if a==0:
+        return b==1
+    if b==0:
+        return False
+    limit = bisect_right(list_of_all_prime,a)
+    factorized = {}
+    for factor in list_of_all_prime[:limit]:
+        factorized[factor]=legendre(a,factor)
+    # print(f"Factorized: {factorized}")
+    limit_b = bisect_right(list_of_all_prime,(b**0.5)//1+1)
+    for factor_b in list_of_all_prime[:limit_b]:
+        if b==1:
+            break
+        if b%factor_b==0:
+            count = 1
+            b = b//factor_b
+            while b%factor_b==0:
+                count+=1
+                b = b//factor_b
+            if factor_b not in factorized or count>factorized[factor_b]:
+                # print(f'Failed at: {factor_b}, count {count}')
+                return False
+    if b>a:
+        return False
+    else:
+        if b==1:
+            return True
+        else:
+            return b<=a
+while True:
+    try:
+        a,b = map(int,input().split())
+        # a! vs. b
+        print(f'{b} divides {a}!'if check_divisible(a,b) else f'{b} does not divide {a}!')
+    except EOFError:
+        break
+Longest Common Subsequence between n strings:
+cases, length = map(int, input().split())
+pos = [[0] * length for _ in range(cases)]
+for i in range(cases):
+    curr_case = input()
+    for j in range(length):
+        pos[i][ord(curr_case[j]) - 65] = j
+choices = [*range(length)]
+choices.sort(key=lambda x: sum(pos[i][x] for i in range(cases)))
+def one_instance(first, best_so_far):
+    curr_choices = [first] + [x for x in choices if x != first]
+    dp = [[0] * (cases + 1) for _ in range(length + 1)]
+    dp[0] = [0] + [-1] * cases
+    n = 0
+    for choice in curr_choices:
+        if dp[n][0] + (length - n) <= best_so_far:  # Early exit
+            return dp[n][0]
+        options = [pos[i][choice] for i in range(cases)]
+        if all(x > y for x, y in zip(options, dp[n][1:])):
+            dp[n+1] = [dp[n][0] + 1] + options
+        else:
+            dp[n+1] = dp[n]
+        n += 1
+    return dp[n][0]
+best = 0
+for i in range(length):
+    best = max(best, one_instance(i, best))
+print(best)
+Karatsuba Algorithm (Divide n Conquer Multiplication):
+# Python implementation of Karatsuba algorithm for bit string multiplication.
+# Helper method: given two unequal sized bit strings, converts them to
+# same length by adding leading 0s in the smaller string. Returns the
+# the new length
+def make_equal_length(str1, str2):
+    len1 = len(str1)
+    len2 = len(str2)
+    if len1 < len2:
+        for i in range(len2 - len1):
+            str1 = '0' + str1
+        return len2
+    elif len1 > len2:
+        for i in range(len1 - len2):
+            str2 = '0' + str2
+    return len1 # If len1 >= len2
+# The main function that adds two bit sequences and returns the addition
+def add_bit_strings(first, second):
+    result = ""  # To store the sum bits
+    # make the lengths same before adding
+    length = make_equal_length(first, second)
+    carry = 0  # Initialize carry
+    # Add all bits one by one
+    for i in range(length-1, -1, -1):
+        first_bit = int(first[i])
+        second_bit = int(second[i])
+        # boolean expression for sum of 3 bits
+        sum = (first_bit ^ second_bit ^ carry) + ord('0')
+        result = chr(sum) + result
+        # boolean expression for 3-bit addition
+        carry = (first_bit & second_bit) | (second_bit & carry) | (first_bit & carry)
+    # if overflow, then add a leading 1
+    if carry:
+        result = '1' + result
+    return result
+# A utility function to multiply single bits of strings a and b
+def multiply_single_bit(a, b):
+    return int(a[0]) * int(b[0])
+# The main function that multiplies two bit strings X and Y and returns
+# result as long integer
+def multiply(X, Y):
+    # Find the maximum of lengths of x and Y and make length
+    # of smaller string same as that of larger string
+    n = max(len(X), len(Y))
+    X = X.zfill(n)
+    Y = Y.zfill(n)
+    # Base cases
+    if n == 0: return 0
+    if n == 1: return int(X[0])*int(Y[0])
+    fh = n//2  # First half of string
+    sh = n - fh  # Second half of string
+    # Find the first half and second half of first string.
+    Xl = X[:fh]
+    Xr = X[fh:]
+    # Find the first half and second half of second string
+    Yl = Y[:fh]
+    Yr = Y[fh:]
+    # Recursively calculate the three products of inputs of size n/2
+    P1 = multiply(Xl, Yl)
+    P2 = multiply(Xr, Yr)
+    P3 = multiply(str(int(Xl, 2) + int(Xr, 2)), str(int(Yl, 2) + int(Yr, 2)))
+    # Combine the three products to get the final result.
+    return P1*(1<<(2*sh)) + (P3 - P1 - P2)*(1<<sh) + P2
+if __name__ == '__main__':
+    print(multiply("1100", "1010"))
+    print(multiply("110", "1010"))
+    print(multiply("11", "1010"))
+    print(multiply("1", "1010"))
+    print(multiply("0", "1010"))
+    print(multiply("111", "111"))
+    print(multiply("11", "11"))
+How to accurately represent numbers in Python (for finance, etc.):
+rounding to the 2nd decimal place in this example
+from decimal import*
+for _ in[0]*int(input()):
+    r,b,m= map(Decimal,input().split())
+    r /= 100
+    if (b*r).quantize(Decimal('0.01'),rounding=ROUND_HALF_UP)-m>=0:print('impossible');continue
+    for i in range(1200):
+        b += (b*r).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP) - m
+        if b<=0:break
+    print(i+1 if b<=0 else'impossible')
+fast fib (using matrix identity):
+https://www.nayuki.io/page/fast-fibonacci-algorithms
+memo = {0:0,1:1,2:1}
+from math import sqrt
+def fib(n):
+    if n in memo:
+        return memo[n]
+    # if n<=71:
+    #     memo[n] = int(1/sqrt(5)*(((1+sqrt(5))/2)**n-((1-sqrt(5))/2)**n))%m
+    #     return memo[n]
+    k = n//2
+    if n%2==0:
+        memo[n]=fib(k)*(2*fib(k+1)-fib(k))%m
+        return memo[n]
+    else:
+        memo[n]=(fib(k+1)**2 + fib(k)**2)%m
+        return memo[n]
+a,b = map(int,input().split())
+n = int(input())
+m = 10**9+7
+a,b = a%m,b%m
+if n!=0:
+    f0 = fib(2*n-1)%m
+    f1 = fib(2*n)%m
+    f2 = (f0+f1)%m
+    print((a*f0+b*f1)%m,(a*f1+b*f2)%m)
+else:
+    print(a,b)
+Python reduce():
+from functools import reduce
+# Summing a list of numbers
+numbers = [1, 2, 3, 4, 5]
+sum_of_numbers = reduce(lambda x, y: x + y, numbers,1)
+print(sum_of_numbers) # Output: 15
+# Finding the product of elements
+product = reduce(lambda x, y: x * y, numbers)
+print(product) # Output: 120
+Python filter:
+# Filter even numbers from a list
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+def is_even(num):
+    return num % 2 == 0
+even_numbers_iterator = filter(is_even, numbers)
+even_numbers = list(even_numbers_iterator)
+print(even_numbers)
+# Output: [2, 4, 6, 8, 10]
+# Using a lambda function to filter vowels
+letters = ['a', 'b', 'c', 'd', 'e']
+vowels = ['a', 'e', 'i', 'o', 'u']
+filtered_vowels_iterator = filter(lambda letter: letter in vowels, letters)
+filtered_vowels = list(filtered_vowels_iterator)
+print(filtered_vowels)
+# Output: ['a', 'e']
+The "splat" operator in Python refers to the use of * and ** symbols, primarily in function definitions and calls, to handle a variable number of arguments or to unpack iterables.
+Here's a summarization of its uses:
+1. *args (Packing Positional Arguments)
+Purpose: In a function definition, *args allows a function to accept an arbitrary number of positional arguments.
+Behavior: When *args is used, all extra positional arguments passed to the function are collected into a tuple. The name args is a convention; you can use any valid variable name preceded by *.
+Example (Function Definition):
+Python
+def my_sum(*numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+my_sum(1, 2, 3)        # numbers will be (1, 2, 3)
+my_sum(10, 20, 30, 40) # numbers will be (10, 20, 30, 40)
+2. **kwargs (Packing Keyword Arguments)
+Purpose: In a function definition, **kwargs allows a function to accept an arbitrary number of keyword arguments.
+Behavior: When **kwargs is used, all extra keyword arguments passed to the function are collected into a dictionary. The name kwargs is a convention; you can use any valid variable name preceded by **.
+Example (Function Definition):
+Python
+def display_info(**details):
+    for key, value in details.items():
+        print(f"{key}: {value}")
+display_info(name="Alice", age=30)  # details will be {'name': 'Alice', 'age': 30}
+display_info(city="New York", zip_code="10001", population=8_000_000)
+3. Unpacking Arguments (in Function Calls)
+The * and ** operators are also used to unpack iterables (lists, tuples, dictionaries) when calling a function, allowing their elements to be passed as individual arguments.
+*iterable (Unpacking for Positional Arguments):
+Used with lists or tuples. It unpacks the elements of the iterable, passing them as separate positional arguments to the function.
+Example:
+Python
+def add(a, b, c):
+    return a + b + c
+my_list = [1, 2, 3]
+add(*my_list) # Equivalent to add(1, 2, 3)
+**dictionary (Unpacking for Keyword Arguments):
+Used with dictionaries. It unpacks the key-value pairs of the dictionary, passing them as separate keyword arguments to the function.
+Example:
+Python
+def print_person(name, age):
+    print(f"Name: {name}, Age: {age}")
+person_data = {"name": "Bob", "age": 25}
+print_person(**person_data) # Equivalent to print_person(name="Bob", age=25)
+4. Order of Arguments in Function Definitions
+When combining these special arguments with regular arguments, a specific order must be followed:
+Standard positional arguments
+Positional-only arguments (introduced by /, if used)
+*args (to capture extra positional arguments)
+Standard keyword-only arguments (following * or *args)
+**kwargs (to capture extra keyword arguments)
+Correct Order Example:
+Python
+def example_function(pos1, pos2, /, pos_or_kw, *args, kw_only1, **kwargs):
+    pass
+Key Benefits:
+Flexibility: Functions can handle a varying number of inputs without needing multiple overloads.
+Readability: Explicitly naming keyword arguments improves code clarity.
+Code Reusability: Functions become more versatile.
+The initial website could not be accessed, so this summary is based on general Python documentation and common usage examples of the splat operator and argument packing/unpacking, as sourced from:
+*args and *kwargs in Python - GeeksforGeeks
+Python args and kwargs: Demystified - Real Python
+*How To Use *args and *kwargs in Python 3 - DigitalOcean
+Packing and Unpacking Arguments in Python - Shiksha Online
+What is packing and unpacking of arguments in Python? - Educative.io
+Python LRU Cache (for memoization):
+
+from functools import lru_cache
+@lru_cache
+def is_palindrome(word):
+    if len(word) in [0,1]:
+        return True
+    if word[0]==word[-1]:
+        return is_palindrome(word[1:-1])
+    return False
+Python Enum (for a type that accepts special infos):
+from enum import Enum
+Color = Enum('Color', [('RED',1), ('GREEN',2), ('BLUE',3)])
+print(Color.RED.name)  # this works, prints 'Color.RED'
+print(Color.RED) # this works, prints 'Color.RED'
+print(Color.RED.value) # this works, prints '1'
+print(Color.TEAL) # this raises an exception
+or 
+from enum import Enum
+class Color(Enum):
+    RED = 1
+    GREEN = 2
+    BLUE = 3
+Python match and case:
+
+def get_hex(color):
+    match color:
+        case Color.RED:
+            return "#FF0000"
+        case Color.GREEN:
+            return "#00FF00"
+        case Color.BLUE:
+            return "#0000FF"
+        # default case
+        # (invalid Color)
+        case _:
+            return "#FFFFFF"
+or
+def get_hex(color, shade):
+    match (color, shade):
+        case (Color.RED, Shade.LIGHT):
+            return "#FFAAAA"
+        case (Color.RED, Shade.DARK):
+            return "#AA0000"
+        case (Color.GREEN, Shade.LIGHT):
+            return "#AAFFAA"
+        case (Color.GREEN, Shade.DARK):
+            return "#00AA00"
+        case (Color.BLUE, Shade.LIGHT):
+            return "#AAAAFF"
+        case (Color.BLUE, Shade.DARK):
+            return "#0000AA"
+        # default case
+        # (invalid combination)
+        case _:
+            return "#FFFFFF"
+combine Enum with match:
+from enum import Enum
+class DocFormat(Enum):
+    PDF = 1
+    TXT = 2
+    MD = 3
+    HTML = 4
+# don't touch above this line
+def convert_format(content, from_format, to_format):
+    match (from_format,to_format):
+        case (DocFormat.MD,DocFormat.HTML):
+            return f"<h1>{content[2:]}</h1>"
+        case (DocFormat.TXT,DocFormat.PDF):
+            return f"[PDF] {content} [PDF]"
+        case (DocFormat.HTML,DocFormat.MD):
+            return content.replace("<h1>","# ").replace("</h1>","")
+        case _:
+            raise Exception("invalid type")
+ 
+Kahn Topological Sort:
+
+# Hacky Ordering
+# https://open.kattis.com/problems/hackyordering
+from collections import defaultdict,deque
+strings = [input().strip() for _ in ' '*int(input())]
+class Trie_Node:
+    def __init__(self):
+        self.children = dict()
+        self.end = False
+def build_Trie(strings:list)->Trie_Node|None:
+    root = Trie_Node()
+    for string in strings:
+        current_level = root
+        for character in string:
+            if character not in current_level.children:
+                current_level.children[character] = Trie_Node()
+            current_level = current_level.children[character]
+        if current_level.children:
+            return None
+        current_level.end = True
+    return root
+def build_constraint_graph(strings):
+    graph = defaultdict(list)
+    indeg = {chr(ord('a')+i):0 for i in range(26)}
+    for i in range(len(strings)-1):
+        s1,s2 = strings[i],strings[i+1]
+        minimum_length = min(len(s1),len(s2))
+        diff = False
+        for j in range(minimum_length):
+            if s1[j]!=s2[j]:
+                u,v = s1[j],s2[j]
+                if v not in graph[u]:
+                    graph[u].append(v)
+                    indeg[v] += 1
+                diff = True
+                break
+        if not diff:
+            if len(s1) > len(s2):
+                return None
+    return indeg,graph
+def kahn_top_sort(strings:list):
+    root = build_Trie(strings)
+    if root is None:
+        return None
+    build_constaint_ouput = build_constraint_graph(strings)
+    if build_constaint_ouput is None:
+        return None
+    indeg,graph = build_constaint_ouput
+    q = deque(c for c in indeg if indeg[c]==0)
+    order = []
+    while q:
+        u = q.popleft()
+        order.append(u)
+        for v in graph[u]:
+            indeg[v] -= 1
+            if indeg[v] == 0:
+                q.append(v)
+    if len(order)==26:
+        return ''.join(order)
+    else:
+        return None
+result = kahn_top_sort(strings)
+print(result if result is not None else 'impossible')
+Longest Common Subsequence:
+
+# A Naive recursive implementation of LCS problem
+# Returns length of LCS for s1[0..m-1], s2[0..n-1]
+def lcsRec(s1, s2, m, n):
+ 
+    # Base case: If either string is empty, the length of LCS is 0
+    if m == 0 or n == 0:
+        return 0
+    # If the last characters of both substrings match
+    if s1[m - 1] == s2[n - 1]:
+        # Include this character in LCS and recur for remaining substrings
+        return 1 + lcsRec(s1, s2, m - 1, n - 1)
+    else:
+        # If the last characters do not match
+        # Recur for two cases:
+        # 1. Exclude the last character of S1
+        # 2. Exclude the last character of S2
+        # Take the maximum of these two recursive calls
+        return max(lcsRec(s1, s2, m, n - 1), lcsRec(s1, s2, m - 1, n))
+def lcs(s1,s2):
+    m = len(s1)
+    n = len(s2)
+    return lcsRec(s1,s2,m,n)
+if __name__ == "__main__":
+    s1 = "AGGTAB"
+    s2 = "GXTXAYB"
+    print(lcs(s1, s2))
+Huffman Code:
+# Python program for the above approach:
+import heapq
+# Class to represent huffman tree 
+class Node:
+    def __init__(self, x):
+        self.data = x
+        self.left = None
+        self.right = None
+    def __lt__(self, other):
+        return self.data < other.data
+# Function to traverse tree in preorder 
+# manner and push the huffman representation 
+# of each character.
+def preOrder(root, ans, curr):
+    if root is None:
+        return
+    # Leaf node represents a character.
+    if root.left is None and root.right is None:
+        ans.append(curr)
+        return
+    preOrder(root.left, ans, curr + '0')
+    preOrder(root.right, ans, curr + '1')
+def huffmanCodes(s, freq):
+    # Code here
+    n = len(s)
+    # Min heap for node class.
+    pq = []
+    for i in range(n):
+        tmp = Node(freq[i])
+        heapq.heappush(pq, tmp)
+    # Construct huffman tree.
+    while len(pq) >= 2:
+        # Left node 
+        l = heapq.heappop(pq)
+        # Right node 
+        r = heapq.heappop(pq)
+        newNode = Node(l.data + r.data)
+        newNode.left = l
+        newNode.right = r
+        heapq.heappush(pq, newNode)
+    root = heapq.heappop(pq)
+    ans = []
+    preOrder(root, ans, "")
+    return ans
+Fenwick Tree aka Binary Index Tree:
+# Python implementation of Binary Indexed Tree
+# Returns sum of arr[0..index]. This function assumes
+# that the array is preprocessed and partial sums of
+# array elements are stored in BITree[].
+def getsum(BITTree,i):
+    s = 0 #initialize result
+    # index in BITree[] is 1 more than the index in arr[]
+    i = i+1
+    # Traverse ancestors of BITree[index]
+    while i > 0:
+        # Add current element of BITree to sum
+        s += BITTree[i]
+        # Move index to parent node in getSum View
+        i -= i & (-i)
+    return s
+# Updates a node in Binary Index Tree (BITree) at given index
+# in BITree. The given value 'val' is added to BITree[i] and
+# all of its ancestors in tree.
+def updatebit(BITTree , n , i ,v):
+    # index in BITree[] is 1 more than the index in arr[]
+    i += 1
+    # Traverse all ancestors and add 'val'
+    while i <= n:
+        # Add 'val' to current node of BI Tree
+        BITTree[i] += v
+        # Update index to that of parent in update View
+        i += i & (-i)
+# Constructs and returns a Binary Indexed Tree for given
+# array of size n.
+def construct(arr, n):
+    # Create and initialize BITree[] as 0
+    BITTree = [0]*(n+1)
+    # Store the actual values in BITree[] using update()
+    for i in range(n):
+        updatebit(BITTree, n, i, arr[i])
+    # Uncomment below lines to see contents of BITree[]
+    #for i in range(1,n+1):
+    #     print BITTree[i],
+    return BITTree
+# Driver code to test above methods
+freq = [2, 1, 1, 3, 2, 3, 4, 5, 6, 7, 8, 9]
+BITTree = construct(freq,len(freq))
+print("Sum of elements in arr[0..5] is " + str(getsum(BITTree,5)))
+freq[3] += 6
+updatebit(BITTree, len(freq), 3, 6)
+print("Sum of elements in arr[0..5]"+
+                    " after update is " + str(getsum(BITTree,5)))

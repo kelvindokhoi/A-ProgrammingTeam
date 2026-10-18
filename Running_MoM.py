@@ -1,53 +1,55 @@
 
 # python Running_MoM.py < Running_MoM_in.txt
 
-flights = int(input())
-nameconvert = dict()
-adjacency_list = dict()
-i=0
-for _ in range(flights):
-    go_in, go_out = input().split()
-    if go_in not in nameconvert:
-        nameconvert[go_in]=i
-        i+=1
-    if go_out not in nameconvert:
-        nameconvert[go_out]=i
-        i+=1
-    if go_in in adjacency_list:
-        adjacency_list[go_in].add(go_out)
-    else:
-        adjacency_list[go_in]={go_out}
-    if go_out not in adjacency_list:
-        adjacency_list[go_out] = set()
-total_name = len(nameconvert)
-go_to_map = [[0 for i in ' '*total_name]for j in ' '*total_name]
-# print(adjacency_list)
-for i in adjacency_list.keys():
-    for j in adjacency_list[i]:
-        go_to_map[nameconvert[i]][nameconvert[j]]=1
-for i in range(total_name):
-    for j in range(total_name):
-        for k in range(total_name):
-            if go_to_map[i][j]==1 and go_to_map[j][k]==1: 
-                go_to_map[i][k]=1
+def floydWarshall(dist):
+    V = len(dist)
+    for k in range(V):
+        for i in range(V):
+            for j in range(V):
+                if(dist[i][k] != float("inf") and dist[k][j]!= float("inf")):
+                    dist[i][j] = min(dist[i][j],dist[i][k] + dist[k][j])
 
-# print(adjacency_list)
-safe = set()
-for i in range(total_name):
-    if go_to_map[i][i]==1:
-        safe.add(i)
-updated = set()
-for i in range(total_name):
-    for j in safe:
-        if go_to_map[i][j]==1:
-            updated.add(i)
-safe.update(updated)
-# print(safe)
-# print(safe)
+num_flights = int(input())
+num_to_f = dict()
+f_to_num = dict()
+starter = 0
+total = []
+for i in range(num_flights):
+    start, end = input().split()
+    if start not in f_to_num:
+        f_to_num[start]=starter
+        num_to_f[starter] = start
+        starter+=1
+    if end not in f_to_num:
+        f_to_num[end]=starter
+        num_to_f[starter]=end
+        starter+=1
+    total.append([f_to_num[start],f_to_num[end]])
+num_pairs = len(num_to_f)
+dist = [[float("inf") for _ in' '*num_pairs]for _ in ' '*num_pairs]
+for i in range(num_pairs):
+    dist[i][i]=float("inf")
+for start,end in total:
+    dist[start][end] = 1
+floydWarshall(dist)
+# for i in range(len(dist)):
+#     for j in range(len(dist)):
+#         print(dist[i][j], end=" ")
+#     print()
+
+
+for i in range(num_pairs):
+    is_safe = False
+    for j in range(num_pairs):
+        if dist[j][j] < float("inf") and (dist[i][j] < float("inf") or i == j):
+            is_safe = True
+            break
+    status = "safe" if is_safe else "trapped"
+    f_to_num[num_to_f[i]]=status
+
 while True:
     try:
-        name = input()
-        if nameconvert[name] in safe:
-            print(f"{name} safe")
-        else:print(f"{name} trapped")
-    except EOFError:exit()
+        city = input()
+        print(city,f_to_num[city])
+    except:
+        break
